@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.morseverse.core.common.constants.MorseCodeData
 import com.morseverse.core.common.utils.MorseAudioEngine
-import com.morseverse.core.domain.models.AudioConfig
+import com.morseverse.core.common.utils.AudioConfig
 import com.morseverse.core.domain.models.TranslationEntry
 import com.morseverse.core.domain.repository.MorseRepository
 import dagger.hilt.android.lifecycle.HiltViewModel

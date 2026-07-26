@@ -1,7 +1,7 @@
 package com.morseverse.app
 
 import com.morseverse.core.common.utils.MorseAudioEngine
-import com.morseverse.core.domain.models.AudioConfig
+import com.morseverse.core.common.utils.AudioConfig
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test

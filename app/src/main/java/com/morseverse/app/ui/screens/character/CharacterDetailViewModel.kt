@@ -3,7 +3,7 @@ package com.morseverse.app.ui.screens.character
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.morseverse.core.common.utils.MorseAudioEngine
-import com.morseverse.core.domain.models.AudioConfig
+import com.morseverse.core.common.utils.AudioConfig
 import com.morseverse.core.domain.models.CharacterProgress
 import com.morseverse.core.domain.models.MasteryLevel
 import com.morseverse.core.domain.repository.MorseRepository

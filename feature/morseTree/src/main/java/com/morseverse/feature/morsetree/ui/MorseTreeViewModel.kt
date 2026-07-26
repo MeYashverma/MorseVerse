@@ -3,7 +3,7 @@ package com.morseverse.feature.morsetree.ui
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.morseverse.core.common.utils.MorseAudioEngine
-import com.morseverse.core.domain.models.AudioConfig
+import com.morseverse.core.common.utils.AudioConfig
 import com.morseverse.core.domain.models.MorseTreeNode
 import com.morseverse.core.domain.repository.MorseRepository
 import dagger.hilt.android.lifecycle.HiltViewModel

@@ -6,13 +6,8 @@ import com.morseverse.core.domain.repository.MorseRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
-import java.util.UUID
-import javax.inject.Inject
 
-/**
- * Generate a practice challenge based on mode and user progress
- */
-class GeneratePracticeChallenge @Inject constructor(
+class GeneratePracticeChallenge(
     private val repository: MorseRepository
 ) {
     suspend operator fun invoke(
@@ -90,10 +85,7 @@ class GeneratePracticeChallenge @Inject constructor(
     }
 }
 
-/**
- * Calculate mastery level for a character based on attempts and accuracy
- */
-class CalculateMastery @Inject constructor() {
+class CalculateMastery {
     operator fun invoke(
         totalAttempts: Int,
         correctAttempts: Int,
@@ -125,10 +117,7 @@ class CalculateMastery @Inject constructor() {
     }
 }
 
-/**
- * Calculate XP earned from a practice session
- */
-class CalculateXp @Inject constructor() {
+class CalculateXp {
     operator fun invoke(
         correct: Int,
         total: Int,
@@ -143,10 +132,10 @@ class CalculateXp @Inject constructor() {
             wpm >= 20 -> 15
             else -> 5
         }
-        val modeMultiplier = when (mode) {
-            PracticeMode.WEAK -> 2
+        val modeMultiplier: Float = when (mode) {
+            PracticeMode.WEAK -> 2f
             PracticeMode.CALLSIGN -> 1.5f
-            PracticeMode.CONTEST -> 2
+            PracticeMode.CONTEST -> 2f
             PracticeMode.TIMED -> 1.5f
             else -> 1f
         }
