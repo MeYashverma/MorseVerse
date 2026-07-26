@@ -55,9 +55,17 @@ class MorseAudioEngine {
             val t = i.toDouble() / SAMPLE_RATE
             val value = when (toneType) {
                 ToneType.SINE -> sin(2.0 * PI * frequency * t)
-                ToneType.SMOOTH -> sin(2.0 * PI * frequency * t) + 0.3 * sin(2.0 * PI * frequency * 2 * t)
-                ToneType.BUZZY -> sin(2.0 * PI * frequency * t) + 0.5 * sin(2.0 * PI * frequency * 2 * t) + 0.25 * sin(2.0 * PI * frequency * 3 * t)
-                ToneType.RADIO -> sin(2.0 * PI * frequency * t) + (Math.random() * 0.1 - 0.05)
+                ToneType.SMOOTH -> {
+                    sin(2.0 * PI * frequency * t) + 0.3 * sin(2.0 * PI * frequency * 2 * t)
+                }
+                ToneType.BUZZY -> {
+                    sin(2.0 * PI * frequency * t) +
+                        0.5 * sin(2.0 * PI * frequency * 2 * t) +
+                        0.25 * sin(2.0 * PI * frequency * 3 * t)
+                }
+                ToneType.RADIO -> {
+                    sin(2.0 * PI * frequency * t) + (Math.random() * 0.1 - 0.05)
+                }
             }
             val envelopeSamples = (SAMPLE_RATE * 0.005).toInt()
             val envelope = when {
@@ -217,15 +225,21 @@ class MorseAudioEngine {
             .setBufferSizeInBytes(maxOf(bufferSize, samples.size * 2))
             .setTransferMode(AudioTrack.MODE_STATIC)
             .build()
+
         audioTrack?.write(samples, 0, samples.size)
         audioTrack?.setNotificationMarkerPosition(samples.size)
-        audioTrack?.setPlaybackPositionUpdateListener(object : AudioTrack.OnPlaybackPositionUpdateListener {
+
+        val listener = object : AudioTrack.OnPlaybackPositionUpdateListener {
             override fun onMarkerReached(track: AudioTrack?) {
                 isPlaying = false
                 onComplete()
             }
-            override fun onPeriodicNotification(track: AudioTrack?) {}
-        })
+            override fun onPeriodicNotification(track: AudioTrack?) {
+                // Not used
+            }
+        }
+        audioTrack?.setPlaybackPositionUpdateListener(listener)
+
         isPlaying = true
         audioTrack?.play()
     }
@@ -242,7 +256,11 @@ class MorseAudioEngine {
         audioTrack = null
     }
 
-    fun generateFeedbackTone(frequency: Int = 800, durationMs: Float = 50f, volume: Float = 0.3f): ShortArray {
+    fun generateFeedbackTone(
+        frequency: Int = 800,
+        durationMs: Float = 50f,
+        volume: Float = 0.3f
+    ): ShortArray {
         return generateTone(frequency, durationMs, volume, ToneType.SINE)
     }
 
@@ -250,4 +268,3 @@ class MorseAudioEngine {
         stopAudio()
     }
 }
-l
