@@ -89,7 +89,7 @@ fun SettingsScreen(
             }
             item {
                 SettingsDropdown(
-                    icon = Icons.Filled.GraphicEq,
+                    icon = Icons.Filled.Equalizer,
                     title = "Tone Type",
                     options = listOf("Sine", "Smooth", "Buzzy", "Radio"),
                     selected = "Sine",
@@ -163,7 +163,7 @@ fun SettingsScreen(
             }
             item {
                 SettingsToggle(
-                    icon = Icons.Filled.Contrast,
+                    icon = Icons.Filled.Brightness6,
                     title = "High Contrast",
                     subtitle = "Increase color contrast",
                     checked = false,

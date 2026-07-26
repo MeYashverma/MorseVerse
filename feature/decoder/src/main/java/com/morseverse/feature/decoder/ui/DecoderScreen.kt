@@ -24,6 +24,7 @@ import androidx.compose.ui.platform.LocalHapticFeedback
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.morseverse.core.designsystem.theme.*
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -171,7 +172,7 @@ fun DecoderScreen(
                         rawMorse.ifEmpty { "Waiting for input..." },
                         style = MaterialTheme.typography.bodyLarge.copy(
                             fontFamily = FontFamily.Monospace,
-                            letterSpacing = 2.dp
+                            letterSpacing = 2.sp
                         ),
                         color = if (rawMorse.isNotEmpty()) MorseCyan else MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.5f)
                     )
@@ -258,7 +259,7 @@ fun DecoderScreen(
                         shape = RoundedCornerShape(16.dp),
                         colors = ButtonDefaults.buttonColors(containerColor = MorseCyan)
                     ) {
-                        Icon(Icons.Filled.Decode, null)
+                        Icon(Icons.Filled.Transform, null)
                         Spacer(Modifier.width(8.dp))
                         Text("Decode")
                     }
