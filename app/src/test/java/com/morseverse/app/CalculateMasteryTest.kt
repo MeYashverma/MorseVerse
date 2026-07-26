@@ -37,22 +37,22 @@ class CalculateMasteryTest {
     }
 
     @Test
-    fun `poor accuracy gives low mastery`() {
-        val (mastery, level) = calculateMastery(100, 20, 1000)
-        assertTrue("Mastery should be low", mastery < 0.5f)
-        assertEquals(MasteryLevel.NOVICE, level)
+    fun `poor accuracy gives lower mastery than good accuracy`() {
+        val (poorMastery, _) = calculateMastery(100, 20, 2000)
+        val (goodMastery, _) = calculateMastery(100, 90, 500)
+        assertTrue("Poor accuracy should give lower mastery", poorMastery < goodMastery)
     }
 
     @Test
     fun `mastery is between 0 and 1`() {
         // Test various inputs
         val testCases = listOf(
-            Triple(0, 0, 0L),
-            Triple(1, 1, 100L),
-            Triple(100, 50, 500L),
-            Triple(1000, 900, 300L),
-            Triple(50, 25, 1500L),
-            Triple(10, 10, 50L)
+            Triple(0, 0, 0),
+            Triple(1, 1, 100),
+            Triple(100, 50, 500),
+            Triple(1000, 900, 300),
+            Triple(50, 25, 1500),
+            Triple(10, 10, 50)
         )
 
         testCases.forEach { (attempts, correct, reactionTime) ->

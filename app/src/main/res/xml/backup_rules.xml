@@ -8,8 +8,4 @@
 
     <!-- Include files -->
     <include domain="file" path="audio_cache/" />
-
-    <!-- Exclude sensitive data -->
-    <exclude domain="sharedpref" path="credentials.xml" />
-    <exclude domain="database" path="temp_cache.db" />
 </full-backup-content>

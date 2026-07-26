@@ -40,7 +40,7 @@ class MorseAudioEngine {
     private var isPlaying = false
 
     fun ditDurationMs(wpm: Int): Float {
-        return (PARIS_UNIT.toFloat() / wpm) * 12f
+        return 1200f / wpm
     }
 
     private fun generateTone(
@@ -250,3 +250,4 @@ class MorseAudioEngine {
         stopAudio()
     }
 }
+l
