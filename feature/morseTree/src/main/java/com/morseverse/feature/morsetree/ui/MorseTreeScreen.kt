@@ -359,10 +359,11 @@ private fun DrawScope.drawMorseTree(
         )
 
         // Character text
-        if (node.character != null) {
+        val character = node.character
+        if (character != null) {
             val charTextSize = (14f * scale).coerceIn(10f, 24f)
             val textLayoutResult = textMeasurer.measure(
-                text = AnnotatedString(node.character),
+                text = AnnotatedString(character),
                 style = TextStyle(
                     fontSize = charTextSize.sp,
                     fontWeight = FontWeight.Bold,
