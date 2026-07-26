@@ -332,7 +332,7 @@ private fun StreakGoalCard(
 @Composable
 private fun QuickStatsRow(
     accuracy: Float,
-    wpm: Int,
+    wpm: Float,
     totalChars: Int,
     sessions: Int
 ) {
@@ -351,7 +351,7 @@ private fun QuickStatsRow(
         )
         StatCard(
             modifier = Modifier.weight(1f),
-            value = "$wpm",
+            value = "${wpm.toInt()}",
             label = "WPM",
             icon = Icons.Filled.Speed,
             color = MorseCyan
@@ -866,7 +866,7 @@ private fun FeatureCard(
 private fun RecentSessionCard(
     mode: String,
     accuracy: Float,
-    wpm: Int,
+    wpm: Float,
     xpEarned: Int,
     timestamp: Long
 ) {
@@ -904,7 +904,7 @@ private fun RecentSessionCard(
                     fontWeight = FontWeight.SemiBold
                 )
                 Text(
-                    "${(accuracy * 100).toInt()}% accuracy • $wpm WPM",
+                    "${(accuracy * 100).toInt()}% accuracy • ${wpm.toInt()} WPM",
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
