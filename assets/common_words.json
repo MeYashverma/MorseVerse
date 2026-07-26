@@ -1,0 +1,38 @@
+{
+  "words": {
+    "basic": [
+      "THE", "BE", "TO", "OF", "AND", "A", "IN", "THAT", "HAVE", "I",
+      "IT", "FOR", "NOT", "ON", "WITH", "HE", "AS", "YOU", "DO", "AT",
+      "THIS", "BUT", "HIS", "BY", "FROM", "THEY", "WE", "SAY", "HER", "SHE",
+      "OR", "AN", "WILL", "MY", "ONE", "ALL", "WOULD", "THERE", "THEIR", "WHAT",
+      "SO", "UP", "OUT", "IF", "ABOUT", "WHO", "GET", "WHICH", "GO", "ME"
+    ],
+    "ham_radio": [
+      "CQ", "DE", "73", "88", "ES", "TNX", "FB", "OM", "YL", "RIG",
+      "ANT", "PWR", "RPT", "SIG", "RST", "QTH", "QRM", "QRN", "QSB", "QSL",
+      "CQDX", "DX", "DXPEDITION", "HAM", "ELMER", "RAGCHEW", "NET", "REPEATER",
+      "SOTA", "POTA", "FIELD", "DAY", "CONTEST", "SPEED", "WPM", "CW"
+    ],
+    "emergency": [
+      "SOS", "MAYDAY", "HELP", "EMERGENCY", "URGENT", "DISTRESS", "RESCUE",
+      "DANGER", "WARNING", "ALERT", "SIGNAL", "RECEIVED", "CONFIRM", "ROGER"
+    ],
+    "numbers": [
+      "0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
+      "10", "11", "12", "13", "14", "15", "16", "17", "18", "19",
+      "20", "25", "30", "35", "40", "45", "50", "55", "60", "73", "88", "100"
+    ],
+    "punctuation": [".", ",", "?", "!", "/", "(", ")", "&", ":", ";", "=", "+", "-", "\"", "'", "@"],
+    "q_codes": [
+      "QTH", "QRM", "QRN", "QRS", "QRT", "QRU", "QRV", "QRZ",
+      "QSB", "QSL", "QSO", "QSY", "QTR", "QTX", "QBL", "QNB"
+    ]
+  },
+  "word_lists": {
+    "animals": ["CAT", "DOG", "BIRD", "FISH", "HORSE", "COW", "PIG", "SHEEP", "DUCK", "CHICKEN"],
+    "colors": ["RED", "BLUE", "GREEN", "YELLOW", "BLACK", "WHITE", "ORANGE", "PURPLE", "PINK", "BROWN"],
+    "numbers_word": ["ONE", "TWO", "THREE", "FOUR", "FIVE", "SIX", "SEVEN", "EIGHT", "NINE", "TEN"],
+    "days": ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"],
+    "months": ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"]
+  }
+}

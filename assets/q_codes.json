@@ -1,0 +1,214 @@
+{
+  "q_codes": [
+    {
+      "code": "QRA",
+      "question": "What is the name of your station?",
+      "answer": "The name of my station is ___"
+    },
+    {
+      "code": "QRB",
+      "question": "How far are you from my station?",
+      "answer": "The distance between our stations is approximately ___ km"
+    },
+    {
+      "code": "QRG",
+      "question": "What is my exact frequency?",
+      "answer": "Your exact frequency is ___ kHz"
+    },
+    {
+      "code": "QRH",
+      "question": "Does my frequency vary?",
+      "answer": "Your frequency varies"
+    },
+    {
+      "code": "QRI",
+      "question": "How is the tone of my transmission?",
+      "answer": "The tone of your transmission is ___ (1-Good, 2-Variable, 3-Bad)"
+    },
+    {
+      "code": "QRJ",
+      "question": "How many voice contacts do you want to make?",
+      "answer": "I want to make ___ voice contacts"
+    },
+    {
+      "code": "QRK",
+      "question": "What is the intelligibility of my signals?",
+      "answer": "The intelligibility of your signals is ___ (1-5)"
+    },
+    {
+      "code": "QRL",
+      "question": "Are you busy?",
+      "answer": "I am busy. Please do not interfere"
+    },
+    {
+      "code": "QRM",
+      "question": "Is my transmission being interfered with?",
+      "answer": "Your transmission is being interfered with ___ (1-5)"
+    },
+    {
+      "code": "QRN",
+      "question": "Are you troubled by static?",
+      "answer": "I am troubled by static ___ (1-5)"
+    },
+    {
+      "code": "QRO",
+      "question": "Shall I increase transmitter power?",
+      "answer": "Increase transmitter power to ___"
+    },
+    {
+      "code": "QRP",
+      "question": "Shall I decrease transmitter power?",
+      "answer": "Decrease transmitter power"
+    },
+    {
+      "code": "QRQ",
+      "question": "Shall I send faster?",
+      "answer": "Send faster"
+    },
+    {
+      "code": "QRS",
+      "question": "Shall I send slower?",
+      "answer": "Send slower"
+    },
+    {
+      "code": "QRT",
+      "question": "Shall I stop sending?",
+      "answer": "Stop sending"
+    },
+    {
+      "code": "QRU",
+      "question": "Have you anything for me?",
+      "answer": "I have nothing for you"
+    },
+    {
+      "code": "QRV",
+      "question": "Are you ready?",
+      "answer": "I am ready"
+    },
+    {
+      "code": "QRW",
+      "question": "Shall I tell ___ you are calling on ___ kHz?",
+      "answer": "Please tell ___ I am calling on ___ kHz"
+    },
+    {
+      "code": "QRX",
+      "question": "When will you call me again?",
+      "answer": "I will call you again at ___ on ___ kHz"
+    },
+    {
+      "code": "QRZ",
+      "question": "Who is calling me?",
+      "answer": "You are being called by ___"
+    },
+    {
+      "code": "QSA",
+      "question": "What is the strength of my signals?",
+      "answer": "The strength of your signals is ___ (1-5)"
+    },
+    {
+      "code": "QSB",
+      "question": "Are my signals fading?",
+      "answer": "Your signals are fading"
+    },
+    {
+      "code": "QSD",
+      "question": "Is my keying defective?",
+      "answer": "Your keying is defective"
+    },
+    {
+      "code": "QSG",
+      "question": "Shall I send ___ messages at a time?",
+      "answer": "Send ___ messages at a time"
+    },
+    {
+      "code": "QSK",
+      "question": "Can you hear me between your signals?",
+      "answer": "I can hear you between my signals"
+    },
+    {
+      "code": "QSL",
+      "question": "Can you acknowledge receipt?",
+      "answer": "I am acknowledging receipt"
+    },
+    {
+      "code": "QSN",
+      "question": "Did you hear me on ___ kHz?",
+      "answer": "I did hear you on ___ kHz"
+    },
+    {
+      "code": "QSO",
+      "question": "Can you communicate with ___?",
+      "answer": "I can communicate with ___"
+    },
+    {
+      "code": "QSP",
+      "question": "Will you relay to ___?",
+      "answer": "I will relay to ___"
+    },
+    {
+      "code": "QSQ",
+      "question": "Is my CW tone readable?",
+      "answer": "Your CW tone is readable"
+    },
+    {
+      "code": "QST",
+      "question": "General call to all stations",
+      "answer": "General call to all stations"
+    },
+    {
+      "code": "QSU",
+      "question": "Shall I send on this frequency?",
+      "answer": "Send on this frequency"
+    },
+    {
+      "code": "QSV",
+      "question": "Shall I send a series of V's?",
+      "answer": "Send a series of V's"
+    },
+    {
+      "code": "QSW",
+      "question": "Will you send on this frequency?",
+      "answer": "I will send on this frequency"
+    },
+    {
+      "code": "QSX",
+      "question": "Will you listen on ___ kHz?",
+      "answer": "I am listening on ___ kHz"
+    },
+    {
+      "code": "QSY",
+      "question": "Shall I change frequency?",
+      "answer": "Change frequency to ___"
+    },
+    {
+      "code": "QSZ",
+      "question": "Shall I send each word twice?",
+      "answer": "Send each word twice"
+    },
+    {
+      "code": "QTH",
+      "question": "What is your location?",
+      "answer": "My location is ___"
+    },
+    {
+      "code": "QTR",
+      "question": "What is the correct time?",
+      "answer": "The time is ___"
+    },
+    {
+      "code": "QTU",
+      "question": "What are your hours of operation?",
+      "answer": "My hours of operation are ___"
+    },
+    {
+      "code": "QTX",
+      "question": "Will you keep your station open?",
+      "answer": "I will keep my station open"
+    },
+    {
+      "code": "QUA",
+      "question": "Have you news of ___?",
+      "answer": "I have news of ___"
+    }
+  ]
+}

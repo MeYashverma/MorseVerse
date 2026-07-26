@@ -1,0 +1,184 @@
+{
+  "achievements": [
+    {
+      "id": "first_steps",
+      "title": "First Steps",
+      "description": "Complete your first practice session",
+      "icon": "🎯",
+      "category": "MILESTONE",
+      "requirement": { "type": "sessions", "value": 1 },
+      "xpReward": 50
+    },
+    {
+      "id": "alphabet_explorer",
+      "title": "Alphabet Explorer",
+      "description": "Practice all 26 letters at least once",
+      "icon": "🔤",
+      "category": "EXPLORER",
+      "requirement": { "type": "unique_characters", "value": 26 },
+      "xpReward": 100
+    },
+    {
+      "id": "perfect_10",
+      "title": "Perfect 10",
+      "description": "Get 10 correct answers in a row",
+      "icon": "🔥",
+      "category": "ACCURACY",
+      "requirement": { "type": "streak", "value": 10 },
+      "xpReward": 75
+    },
+    {
+      "id": "perfect_25",
+      "title": "On Fire",
+      "description": "Get 25 correct answers in a row",
+      "icon": "🔥🔥",
+      "category": "ACCURACY",
+      "requirement": { "type": "streak", "value": 25 },
+      "xpReward": 150
+    },
+    {
+      "id": "perfect_50",
+      "title": "Unstoppable",
+      "description": "Get 50 correct answers in a row",
+      "icon": "💎",
+      "category": "ACCURACY",
+      "requirement": { "type": "streak", "value": 50 },
+      "xpReward": 300
+    },
+    {
+      "id": "speed_20",
+      "title": "Getting Faster",
+      "description": "Reach 20 WPM",
+      "icon": "⚡",
+      "category": "SPEED",
+      "requirement": { "type": "wpm", "value": 20 },
+      "xpReward": 100
+    },
+    {
+      "id": "speed_30",
+      "title": "Speed Demon",
+      "description": "Reach 30 WPM",
+      "icon": "⚡⚡",
+      "category": "SPEED",
+      "requirement": { "type": "wpm", "value": 30 },
+      "xpReward": 200
+    },
+    {
+      "id": "speed_40",
+      "title": "Lightning Fast",
+      "description": "Reach 40 WPM",
+      "icon": "🏆",
+      "category": "SPEED",
+      "requirement": { "type": "wpm", "value": 40 },
+      "xpReward": 500
+    },
+    {
+      "id": "streak_3",
+      "title": "Consistent",
+      "description": "Practice 3 days in a row",
+      "icon": "📅",
+      "category": "STREAK",
+      "requirement": { "type": "streak_days", "value": 3 },
+      "xpReward": 50
+    },
+    {
+      "id": "streak_7",
+      "title": "Week Warrior",
+      "description": "Practice 7 days in a row",
+      "icon": "🔥",
+      "category": "STREAK",
+      "requirement": { "type": "streak_days", "value": 7 },
+      "xpReward": 100
+    },
+    {
+      "id": "streak_30",
+      "title": "Monthly Master",
+      "description": "Practice 30 days in a row",
+      "icon": "👑",
+      "category": "STREAK",
+      "requirement": { "type": "streak_days", "value": 30 },
+      "xpReward": 500
+    },
+    {
+      "id": "alphabet_master",
+      "title": "Alphabet Master",
+      "description": "Achieve 80% mastery on all 26 letters",
+      "icon": "🎓",
+      "category": "MASTER",
+      "requirement": { "type": "all_letters_mastered", "value": 26 },
+      "xpReward": 500
+    },
+    {
+      "id": "number_master",
+      "title": "Number Cruncher",
+      "description": "Learn all 10 digits",
+      "icon": "🔢",
+      "category": "MASTER",
+      "requirement": { "type": "numbers_learned", "value": 10 },
+      "xpReward": 200
+    },
+    {
+      "id": "centurion",
+      "title": "Centurion",
+      "description": "Complete 100 practice sessions",
+      "icon": "💯",
+      "category": "MILESTONE",
+      "requirement": { "type": "sessions", "value": 100 },
+      "xpReward": 300
+    },
+    {
+      "id": "word_master",
+      "title": "Word Master",
+      "description": "Decode 100 words correctly",
+      "icon": "📖",
+      "category": "MASTER",
+      "requirement": { "type": "words_decoded", "value": 100 },
+      "xpReward": 200
+    },
+    {
+      "id": "translator_user",
+      "title": "Translator",
+      "description": "Use the translator 10 times",
+      "icon": "🔄",
+      "category": "EXPLORER",
+      "requirement": { "type": "translations", "value": 10 },
+      "xpReward": 50
+    },
+    {
+      "id": "story_beginner",
+      "title": "Story Beginner",
+      "description": "Complete your first story mission",
+      "icon": "📚",
+      "category": "EXPLORER",
+      "requirement": { "type": "missions_completed", "value": 1 },
+      "xpReward": 100
+    },
+    {
+      "id": "night_owl",
+      "title": "Night Owl",
+      "description": "Practice after midnight",
+      "icon": "🦉",
+      "category": "SPECIAL",
+      "requirement": { "type": "practice_after_midnight", "value": 1 },
+      "xpReward": 25
+    },
+    {
+      "id": "early_bird",
+      "title": "Early Bird",
+      "description": "Practice before 7 AM",
+      "icon": "🐦",
+      "category": "SPECIAL",
+      "requirement": { "type": "practice_before_7am", "value": 1 },
+      "xpReward": 25
+    },
+    {
+      "id": "xp_1000",
+      "title": "XP Hunter",
+      "description": "Earn 1000 XP total",
+      "icon": "⭐",
+      "category": "MILESTONE",
+      "requirement": { "type": "total_xp", "value": 1000 },
+      "xpReward": 100
+    }
+  ]
+}

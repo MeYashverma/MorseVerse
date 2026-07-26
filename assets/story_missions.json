@@ -1,0 +1,150 @@
+{
+  "missions": [
+    {
+      "id": "sos_rescue",
+      "title": "SOS Rescue",
+      "description": "Learn the most critical Morse signals to rescue a stranded sailor.",
+      "category": "SOS",
+      "difficulty": 1,
+      "characters_introduced": ["S", "O", "E", "T", "M", "N"],
+      "xp_reward": 100,
+      "chapters": [
+        {
+          "id": "sos_ch1",
+          "title": "Chapter 1: The Signal",
+          "narrative": "A faint signal crackles through the radio... SOS... SOS... You must learn to recognize the distress call!",
+          "challenges": [
+            { "type": "LISTEN", "prompt": "Listen to the SOS signal", "expected": "SOS" },
+            { "type": "DECODE", "prompt": "What does ...---... mean?", "expected": "SOS" }
+          ]
+        },
+        {
+          "id": "sos_ch2",
+          "title": "Chapter 2: Quick Response",
+          "narrative": "You've detected the signal! Now learn S and O to decode the emergency message.",
+          "challenges": [
+            { "type": "DECODE", "prompt": "Decode: ...", "expected": "S" },
+            { "type": "DECODE", "prompt": "Decode: ---", "expected": "O" },
+            { "type": "ENCODE", "prompt": "Encode: SOS", "expected": "...---..." }
+          ]
+        },
+        {
+          "id": "sos_ch3",
+          "title": "Chapter 3: More Letters",
+          "narrative": "The sailor is transmitting more. Learn E and T to understand the full message.",
+          "challenges": [
+            { "type": "DECODE", "prompt": "Decode: .", "expected": "E" },
+            { "type": "DECODE", "prompt": "Decode: -", "expected": "T" },
+            { "type": "DECODE", "prompt": "Decode: ... --- ... / . -", "expected": "SOS ET" }
+          ]
+        },
+        {
+          "id": "sos_ch4",
+          "title": "Chapter 4: The Rescue",
+          "narrative": "Decode the coordinates using M and N to complete the rescue mission!",
+          "challenges": [
+            { "type": "DECODE", "prompt": "Decode: --", "expected": "M" },
+            { "type": "DECODE", "prompt": "Decode: -.", "expected": "N" },
+            { "type": "TRANSLATE", "prompt": "Encode: SENT HOME", "expected": "... . -. - / --- -- ." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "spy_mission",
+      "title": "Spy Mission",
+      "description": "Intercept enemy communications as a Cold War spy.",
+      "category": "SPY",
+      "difficulty": 2,
+      "characters_introduced": ["A", "I", "N", "R", "W", "D"],
+      "xp_reward": 150,
+      "chapters": [
+        {
+          "id": "spy_ch1",
+          "title": "Chapter 1: The Briefing",
+          "narrative": "Agent, you've been selected for a top-secret mission. Learn A and I to begin intercepting messages.",
+          "challenges": [
+            { "type": "DECODE", "prompt": "Decode: .-", "expected": "A" },
+            { "type": "DECODE", "prompt": "Decode: ..", "expected": "I" },
+            { "type": "ENCODE", "prompt": "Encode: AI", "expected": ".- .." }
+          ]
+        },
+        {
+          "id": "spy_ch2",
+          "title": "Chapter 2: First Intercept",
+          "narrative": "Your first message comes through. Decode it using N and R.",
+          "challenges": [
+            { "type": "DECODE", "prompt": "Decode: -.", "expected": "N" },
+            { "type": "DECODE", "prompt": "Decode: .-.", "expected": "R" },
+            { "type": "DECODE", "prompt": "Decode: .-. .- -.", "expected": "RAN" }
+          ]
+        },
+        {
+          "id": "spy_ch3",
+          "title": "Chapter 3: Double Agent",
+          "narrative": "A double agent is sending coded warnings. Use W and D to decode them.",
+          "challenges": [
+            { "type": "DECODE", "prompt": "Decode: .--", "expected": "W" },
+            { "type": "DECODE", "prompt": "Decode: -..", "expected": "D" },
+            { "type": "DECODE", "prompt": "Decode: .-- .- .-. -..", "expected": "WARD" }
+          ]
+        },
+        {
+          "id": "spy_ch4",
+          "title": "Chapter 4: Extraction",
+          "narrative": "Decode the extraction coordinates to escape before it's too late!",
+          "challenges": [
+            { "type": "TRANSLATE", "prompt": "Encode: DRAW INWARD", "expected": "-.. .-. .- .-- / .. -. .-- .- .-. -.." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "space_mission",
+      "title": "Space Mission",
+      "description": "Communicate with a stranded astronaut using Morse light signals.",
+      "category": "SPACE",
+      "difficulty": 3,
+      "characters_introduced": ["H", "L", "P", "B", "V", "K"],
+      "xp_reward": 200,
+      "chapters": [
+        {
+          "id": "space_ch1",
+          "title": "Chapter 1: Lost in Space",
+          "narrative": "An astronaut's radio is damaged. They're flashing Morse with a flashlight! Learn H and L.",
+          "challenges": [
+            { "type": "DECODE", "prompt": "Decode: ....", "expected": "H" },
+            { "type": "DECODE", "prompt": "Decode: .-..", "expected": "L" }
+          ]
+        },
+        {
+          "id": "space_ch2",
+          "title": "Chapter 2: The Message",
+          "narrative": "Decode the astronaut's first message using P and B.",
+          "challenges": [
+            { "type": "DECODE", "prompt": "Decode: .--.", "expected": "P" },
+            { "type": "DECODE", "prompt": "Decode: -...", "expected": "B" },
+            { "type": "DECODE", "prompt": "Decode: .... . .-.. .--.", "expected": "HELP" }
+          ]
+        },
+        {
+          "id": "space_ch3",
+          "title": "Chapter 3: Rescue Plan",
+          "narrative": "Coordinate the rescue by learning V and K.",
+          "challenges": [
+            { "type": "DECODE", "prompt": "Decode: ...-", "expected": "V" },
+            { "type": "DECODE", "prompt": "Decode: -.-", "expected": "K" }
+          ]
+        },
+        {
+          "id": "space_ch4",
+          "title": "Chapter 4: Homecoming",
+          "narrative": "Guide the astronaut home with precise Morse communication!",
+          "challenges": [
+            { "type": "TRANSLATE", "prompt": "Encode: BLIP VIP", "expected": "-... .-.. .. .--. / ...- .. .--." }
+          ]
+        }
+      ]
+    }
+  ]
+}

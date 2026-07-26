@@ -1,0 +1,113 @@
+{
+  "band_plans": [
+    {
+      "band": "160m",
+      "frequency": "1.8-2.0 MHz",
+      "cw": "1.800-1.840 MHz",
+      "phone": "1.840-2.000 MHz",
+      "notes": "Top band, good for nighttime DX"
+    },
+    {
+      "band": "80m",
+      "frequency": "3.5-4.0 MHz",
+      "cw": "3.500-3.580 MHz",
+      "phone": "3.600-4.000 MHz",
+      "notes": "Nighttime band, regional contacts"
+    },
+    {
+      "band": "60m",
+      "frequency": "5.3 MHz",
+      "cw": "5.3305-5.3465 MHz",
+      "phone": "5.3305-5.3465 MHz",
+      "notes": "Channelized, limited use"
+    },
+    {
+      "band": "40m",
+      "frequency": "7.0-7.3 MHz",
+      "cw": "7.000-7.040 MHz",
+      "phone": "7.040-7.300 MHz",
+      "notes": "Good nighttime band, regional to DX"
+    },
+    {
+      "band": "30m",
+      "frequency": "10.1-10.15 MHz",
+      "cw": "10.100-10.150 MHz",
+      "phone": "None (CW/digital only)",
+      "notes": "WARC band, no contests"
+    },
+    {
+      "band": "20m",
+      "frequency": "14.0-14.35 MHz",
+      "cw": "14.000-14.070 MHz",
+      "phone": "14.100-14.350 MHz",
+      "notes": "Best DX band, always open somewhere"
+    },
+    {
+      "band": "17m",
+      "frequency": "18.068-18.168 MHz",
+      "cw": "18.068-18.100 MHz",
+      "phone": "18.110-18.168 MHz",
+      "notes": "WARC band, good daytime"
+    },
+    {
+      "band": "15m",
+      "frequency": "21.0-21.45 MHz",
+      "cw": "21.000-21.070 MHz",
+      "phone": "21.125-21.450 MHz",
+      "notes": "Good daytime, especially at solar maximum"
+    },
+    {
+      "band": "12m",
+      "frequency": "24.89-24.99 MHz",
+      "cw": "24.890-24.920 MHz",
+      "phone": "24.930-24.990 MHz",
+      "notes": "WARC band, solar maximum"
+    },
+    {
+      "band": "10m",
+      "frequency": "28.0-29.7 MHz",
+      "cw": "28.000-28.070 MHz",
+      "phone": "28.300-29.700 MHz",
+      "notes": "Best at solar maximum, sporadic E"
+    },
+    {
+      "band": "6m",
+      "frequency": "50-54 MHz",
+      "cw": "50.0-50.1 MHz",
+      "phone": "50.1-54.0 MHz",
+      "notes": "Magic band, sporadic E and aurora"
+    },
+    {
+      "band": "2m",
+      "frequency": "144-148 MHz",
+      "cw": "144.0-144.1 MHz",
+      "phone": "144.1-148.0 MHz",
+      "notes": "VHF, local and sporadic E"
+    },
+    {
+      "band": "70cm",
+      "frequency": "420-450 MHz",
+      "cw": "420-430 MHz",
+      "phone": "430-450 MHz",
+      "notes": "UHF, local and satellites"
+    }
+  ],
+  "contest_frequencies": {
+    "cw": {
+      "160m": "1.825-1.835 MHz",
+      "80m": "3.525-3.555 MHz",
+      "40m": "7.025-7.055 MHz",
+      "20m": "14.025-14.055 MHz",
+      "15m": "21.025-21.055 MHz",
+      "10m": "28.025-28.055 MHz"
+    },
+    "ssb": {
+      "160m": "1.825-1.845 MHz",
+      "80m": "3.750-3.850 MHz",
+      "40m": "7.150-7.250 MHz",
+      "20m": "14.150-14.350 MHz",
+      "15m": "21.200-21.400 MHz",
+      "10m": "28.400-28.600 MHz"
+    }
+  }
+}

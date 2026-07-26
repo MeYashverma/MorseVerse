@@ -1,0 +1,30 @@
+{
+  "phonetic_alphabet": [
+    { "letter": "A", "word": "Alpha", "morse": ".-", "pronunciation": "AL-fah" },
+    { "letter": "B", "word": "Bravo", "morse": "-...", "pronunciation": "BRAH-voh" },
+    { "letter": "C", "word": "Charlie", "morse": "-.-.", "pronunciation": "CHAR-lee" },
+    { "letter": "D", "word": "Delta", "morse": "-..", "pronunciation": "DELL-tah" },
+    { "letter": "E", "word": "Echo", "morse": ".", "pronunciation": "ECK-oh" },
+    { "letter": "F", "word": "Foxtrot", "morse": "..-.", "pronunciation": "FOKS-trot" },
+    { "letter": "G", "word": "Golf", "morse": "--.", "pronunciation": "GOLF" },
+    { "letter": "H", "word": "Hotel", "morse": "....", "pronunciation": "hoh-TELL" },
+    { "letter": "I", "word": "India", "morse": "..", "pronunciation": "IN-dee-ah" },
+    { "letter": "J", "word": "Juliet", "morse": ".---", "pronunciation": "JEW-lee-ETT" },
+    { "letter": "K", "word": "Kilo", "morse": "-.-", "pronunciation": "KEY-loh" },
+    { "letter": "L", "word": "Lima", "morse": ".-..", "pronunciation": "LEE-mah" },
+    { "letter": "M", "word": "Mike", "morse": "--", "pronunciation": "MIKE" },
+    { "letter": "N", "word": "November", "morse": "-.", "pronunciation": "noh-VEM-ber" },
+    { "letter": "O", "word": "Oscar", "morse": "---", "pronunciation": "OSS-cah" },
+    { "letter": "P", "word": "Papa", "morse": ".--.", "pronunciation": "pah-PAH" },
+    { "letter": "Q", "word": "Quebec", "morse": "--.-", "pronunciation": "keh-BECK" },
+    { "letter": "R", "word": "Romeo", "morse": ".-.", "pronunciation": "ROW-mee-oh" },
+    { "letter": "S", "word": "Sierra", "morse": "...", "pronunciation": "see-AIR-rah" },
+    { "letter": "T", "word": "Tango", "morse": "-", "pronunciation": "TANG-go" },
+    { "letter": "U", "word": "Uniform", "morse": "..-", "pronunciation": "YOU-nee-form" },
+    { "letter": "V", "word": "Victor", "morse": "...-", "pronunciation": "VIK-tah" },
+    { "letter": "W", "word": "Whiskey", "morse": ".--", "pronunciation": "WISS-key" },
+    { "letter": "X", "word": "X-ray", "morse": "-..-", "pronunciation": "ECKS-ray" },
+    { "letter": "Y", "word": "Yankee", "morse": "-.--", "pronunciation": "YANG-key" },
+    { "letter": "Z", "word": "Zulu", "morse": "--..", "pronunciation": "ZOO-loo" }
+  ]
+}

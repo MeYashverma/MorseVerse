@@ -1,0 +1,53 @@
+{
+  "tips": {
+    "A": "Think of 'A' as a short dash following a dot — like saying 'ay!' (·—)",
+    "B": "One long dash followed by three dots — like 'BUM diddly' (—···)",
+    "C": "Dash-dot-dash-dot — like a heartbeat pattern (—·—·)",
+    "D": "One dash followed by two dots — 'DASH diddly' (—··)",
+    "E": "The simplest letter — just one dot! (·)",
+    "F": "Dot-dot-dash-dot — 'did-did-DAH-dit' (··—·)",
+    "G": "Two dashes then a dot — 'GO GO fast!' (——·)",
+    "H": "Four dots — 'hip-hip-hip-hip' (····)",
+    "I": "Just two dots — 'it's easy!' (··)",
+    "J": "Dot then three dashes — 'jump jump jump' (·———)",
+    "K": "Dash-dot-dash — 'KAN you see?' (—·—)",
+    "L": "Dot-dash-dot-dot — 'let it be' (·—··)",
+    "M": "Two dashes — 'mmm-mmm' (——)",
+    "N": "One dash and one dot — 'no!' (—·)",
+    "O": "Three dashes — 'OH OH OH' (———)",
+    "P": "Dot-dash-dash-dot — 'POPCORN' (·——·)",
+    "Q": "Dash-dash-dot-dash — 'Q is Queen' (——·—)",
+    "R": "Dot-dash-dot — 'ri-DOT' (·—·)",
+    "S": "Three dots — 's-s-s' like a snake (···)",
+    "T": "The second simplest — just one dash! (—)",
+    "U": "Dot-dot-dash — 'you and me' (··—)",
+    "V": "Three dots then a dash — 'V for Victory' (···—)",
+    "W": "Dot-dash-dash — 'WOW' (·——)",
+    "X": "Dash-dot-dot-dash — 'eXit' (—··—)",
+    "Y": "Dash-dot-dash-dash — 'YES YES' (—·——)",
+    "Z": "Dash-dash-dot-dot — 'ZZ Top' (——··)",
+    "0": "Five dashes — all long (—————)",
+    "1": "One dot, four dashes — counting up! (·————)",
+    "2": "Two dots, three dashes (··———)",
+    "3": "Three dots, two dashes (···——)",
+    "4": "Four dots, one dash (····—)",
+    "5": "Five dots — all short (·····)",
+    "6": "One dash, four dots — reverse of 1 (—····)",
+    "7": "Two dashes, three dots — reverse of 2 (——···)",
+    "8": "Three dashes, two dots — reverse of 3 (———··)",
+    "9": "Four dashes, one dot — reverse of 4 (————·)"
+  },
+  "patterns": {
+    "similar_pairs": [
+      { "chars": ["A", "N"], "tip": "A starts with dot, N starts with dash" },
+      { "chars": ["D", "B"], "tip": "D is dash + 2 dots, B is dash + 3 dots" },
+      { "chars": ["F", "L"], "tip": "F starts with 2 dots, L starts with dot-dash" },
+      { "chars": ["G", "W"], "tip": "G is 2 dashes + dot, W is dot + 2 dashes" },
+      { "chars": ["K", "C"], "tip": "K is dash-dot-dash, C is dash-dot-dash-dot" },
+      { "chars": ["M", "O"], "tip": "M is 2 dashes, O is 3 dashes" },
+      { "chars": ["S", "H"], "tip": "S is 3 dots, H is 4 dots" },
+      { "chars": ["U", "V"], "tip": "U is 2 dots + dash, V is 3 dots + dash" }
+    ],
+    "easy_to_hard": ["E", "T", "I", "A", "N", "M", "S", "U", "R", "W", "D", "K", "G", "O", "H", "V", "F", "L", "P", "J", "B", "X", "C", "Y", "Z", "Q"]
+  }
+}

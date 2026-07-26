@@ -1,0 +1,114 @@
+{
+  "lessons": [
+    {
+      "lesson": 1,
+      "characters": ["K", "M"],
+      "description": "Start with K and M - common letters with distinct sounds"
+    },
+    {
+      "lesson": 2,
+      "characters": ["U", "R"],
+      "description": "Add U and R - short patterns"
+    },
+    {
+      "lesson": 3,
+      "characters": ["E", "S"],
+      "description": "The simplest letters - E (one dot) and S (three dots)"
+    },
+    {
+      "lesson": 4,
+      "characters": ["N", "A"],
+      "description": "Common letters N and A"
+    },
+    {
+      "lesson": 5,
+      "characters": ["P", "T"],
+      "description": "Add P and T - T is very common"
+    },
+    {
+      "lesson": 6,
+      "characters": ["L", "W"],
+      "description": "L and W - longer patterns"
+    },
+    {
+      "lesson": 7,
+      "characters": ["I", "."],
+      "description": "I (two dots) and period punctuation"
+    },
+    {
+      "lesson": 8,
+      "characters": ["J", "Z"],
+      "description": "Less common letters J and Z"
+    },
+    {
+      "lesson": 9,
+      "characters": ["=", "F"],
+      "description": "Equals sign and F"
+    },
+    {
+      "lesson": 10,
+      "characters": ["O", "Y"],
+      "description": "O (three dashes) and Y"
+    },
+    {
+      "lesson": 11,
+      "characters": ["V", ","],
+      "description": "V and comma punctuation"
+    },
+    {
+      "lesson": 12,
+      "characters": ["G", "5"],
+      "description": "G and the number 5"
+    },
+    {
+      "lesson": 13,
+      "characters": ["/", "Q"],
+      "description": "Slash (word separator) and Q"
+    },
+    {
+      "lesson": 14,
+      "characters": ["9", "2"],
+      "description": "Numbers 9 and 2"
+    },
+    {
+      "lesson": 15,
+      "characters": ["H", "3"],
+      "description": "H (four dots) and number 3"
+    },
+    {
+      "lesson": 16,
+      "characters": ["8", "B"],
+      "description": "Number 8 and B"
+    },
+    {
+      "lesson": 17,
+      "characters": ["4", "7"],
+      "description": "Numbers 4 and 7"
+    },
+    {
+      "lesson": 18,
+      "characters": ["C", "1"],
+      "description": "C and number 1"
+    },
+    {
+      "lesson": 19,
+      "characters": ["D", "6"],
+      "description": "D and number 6"
+    },
+    {
+      "lesson": 20,
+      "characters": ["0", "X"],
+      "description": "Number 0 and X"
+    },
+    {
+      "lesson": 21,
+      "characters": ["?", "-"],
+      "description": "Question mark and hyphen"
+    },
+    {
+      "lesson": 22,
+      "characters": ["!", "@"],
+      "description": "Exclamation mark and at sign"
+    }
+  ]
+}
