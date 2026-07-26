@@ -47,12 +47,12 @@ class CalculateMasteryTest {
     fun `mastery is between 0 and 1`() {
         // Test various inputs
         val testCases = listOf(
-            Triple(0, 0, 0),
-            Triple(1, 1, 100),
-            Triple(100, 50, 500),
-            Triple(1000, 900, 300),
-            Triple(50, 25, 1500),
-            Triple(10, 10, 50)
+            Triple(0, 0, 0L),
+            Triple(1, 1, 100L),
+            Triple(100, 50, 500L),
+            Triple(1000, 900, 300L),
+            Triple(50, 25, 1500L),
+            Triple(10, 10, 50L)
         )
 
         testCases.forEach { (attempts, correct, reactionTime) ->
