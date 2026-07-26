@@ -128,6 +128,8 @@ dependencies {
 
     implementation(libs.coil.compose)
 
+    coreLibraryDesugaring(libs.desugar.jdk.libs)
+
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
 
@@ -136,8 +138,4 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.compose.ui.test)
-}
-
-ksp {
-    arg("room.schemaLocation", "$projectDir/schemas")
 }
