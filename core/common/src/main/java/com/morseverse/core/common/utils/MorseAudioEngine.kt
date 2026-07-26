@@ -7,8 +7,6 @@ import kotlin.math.PI
 import kotlin.math.min
 import kotlin.math.sin
 
-// ── Local type definitions (duplicated from domain to avoid circular dependency) ──
-
 enum class ToneType { SINE, SMOOTH, BUZZY, RADIO }
 enum class NoiseType { NONE, STATIC, RAIN, WEAK_SIGNAL, CONTEST, RADIO }
 
@@ -31,10 +29,6 @@ object MorseTiming {
     const val WORD_SPACE = 7
 }
 
-/**
- * High-performance Morse code audio tone generator.
- * Generates PCM audio for Morse code at any WPM, frequency, and volume.
- */
 class MorseAudioEngine {
 
     companion object {
@@ -57,36 +51,20 @@ class MorseAudioEngine {
     ): ShortArray {
         val numSamples = (SAMPLE_RATE * durationMs / 1000).toInt()
         val samples = ShortArray(numSamples)
-
         for (i in 0 until numSamples) {
             val t = i.toDouble() / SAMPLE_RATE
             val value = when (toneType) {
                 ToneType.SINE -> sin(2.0 * PI * frequency * t)
-                ToneType.SMOOTH -> {
-                    val fundamental = sin(2.0 * PI * frequency * t)
-                    val harmonic = 0.3 * sin(2.0 * PI * frequency * 2 * t)
-                    fundamental + harmonic
-                }
-                ToneType.BUZZY -> {
-                    val fundamental = sin(2.0 * PI * frequency * t)
-                    val harmonic2 = 0.5 * sin(2.0 * PI * frequency * 2 * t)
-                    val harmonic3 = 0.25 * sin(2.0 * PI * frequency * 3 * t)
-                    fundamental + harmonic2 + harmonic3
-                }
-                ToneType.RADIO -> {
-                    val fundamental = sin(2.0 * PI * frequency * t)
-                    val noise = (Math.random() * 0.1 - 0.05)
-                    fundamental + noise
-                }
+                ToneType.SMOOTH -> sin(2.0 * PI * frequency * t) + 0.3 * sin(2.0 * PI * frequency * 2 * t)
+                ToneType.BUZZY -> sin(2.0 * PI * frequency * t) + 0.5 * sin(2.0 * PI * frequency * 2 * t) + 0.25 * sin(2.0 * PI * frequency * 3 * t)
+                ToneType.RADIO -> sin(2.0 * PI * frequency * t) + (Math.random() * 0.1 - 0.05)
             }
-
             val envelopeSamples = (SAMPLE_RATE * 0.005).toInt()
             val envelope = when {
                 i < envelopeSamples -> i.toDouble() / envelopeSamples
                 i > numSamples - envelopeSamples -> (numSamples - i).toDouble() / envelopeSamples
                 else -> 1.0
             }
-
             samples[i] = (value * envelope * volume * Short.MAX_VALUE).toInt()
                 .coerceIn(Short.MIN_VALUE.toInt(), Short.MAX_VALUE.toInt())
                 .toShort()
@@ -95,16 +73,13 @@ class MorseAudioEngine {
     }
 
     private fun generateSilence(durationMs: Float): ShortArray {
-        val numSamples = (SAMPLE_RATE * durationMs / 1000).toInt()
-        return ShortArray(numSamples)
+        return ShortArray((SAMPLE_RATE * durationMs / 1000).toInt())
     }
 
     private fun generateNoise(durationMs: Float, level: Float, noiseType: NoiseType): ShortArray {
         if (noiseType == NoiseType.NONE || level == 0f) return ShortArray(0)
-
         val numSamples = (SAMPLE_RATE * durationMs / 1000).toInt()
         val samples = ShortArray(numSamples)
-
         for (i in 0 until numSamples) {
             val noise = when (noiseType) {
                 NoiseType.STATIC -> (Math.random() * 2 - 1) * level * Short.MAX_VALUE
@@ -151,33 +126,31 @@ class MorseAudioEngine {
 
         val result = mutableListOf<Short>()
         var i = 0
-
         while (i < morse.length) {
             when (morse[i]) {
                 '.' -> {
-                    result += generateTone(config.frequency, ditMs, config.volume, config.toneType)
+                    result.addAll(generateTone(config.frequency, ditMs, config.volume, config.toneType).toList())
                     if (i + 1 < morse.length && morse[i + 1] != ' ') {
-                        result += generateSilence(symbolSpaceMs)
+                        result.addAll(generateSilence(symbolSpaceMs).toList())
                     }
                 }
                 '-' -> {
-                    result += generateTone(config.frequency, dahMs, config.volume, config.toneType)
+                    result.addAll(generateTone(config.frequency, dahMs, config.volume, config.toneType).toList())
                     if (i + 1 < morse.length && morse[i + 1] != ' ') {
-                        result += generateSilence(symbolSpaceMs)
+                        result.addAll(generateSilence(symbolSpaceMs).toList())
                     }
                 }
                 ' ' -> {
                     if (i + 1 < morse.length && morse[i + 1] == ' ') {
-                        result += generateSilence(wordSpaceMs - charSpaceMs)
+                        result.addAll(generateSilence(wordSpaceMs - charSpaceMs).toList())
                         while (i + 1 < morse.length && morse[i + 1] == ' ') i++
                     } else {
-                        result += generateSilence(charSpaceMs - symbolSpaceMs)
+                        result.addAll(generateSilence(charSpaceMs - symbolSpaceMs).toList())
                     }
                 }
             }
             i++
         }
-
         return result.toShortArray()
     }
 
@@ -187,7 +160,6 @@ class MorseAudioEngine {
         charToMorse: (Char) -> String?
     ): ShortArray {
         val result = mutableListOf<Short>()
-
         for ((index, char) in text.withIndex()) {
             if (char == ' ') {
                 val ditMs = ditDurationMs(config.wpm)
@@ -196,10 +168,10 @@ class MorseAudioEngine {
                 } else {
                     ditMs * MorseTiming.WORD_SPACE
                 }
-                result += generateSilence(wordSpaceMs)
+                result.addAll(generateSilence(wordSpaceMs).toList())
             } else {
                 val morse = charToMorse(char.uppercaseChar()) ?: continue
-                result += generateMorseAudio(morse, config)
+                result.addAll(generateMorseAudio(morse, config).toList())
                 if (index < text.length - 1 && text[index + 1] != ' ') {
                     val ditMs = ditDurationMs(config.wpm)
                     val charSpaceMs = if (config.farnsworthSpacing) {
@@ -207,33 +179,27 @@ class MorseAudioEngine {
                     } else {
                         ditMs * MorseTiming.CHARACTER_SPACE
                     }
-                    result += generateSilence(charSpaceMs)
+                    result.addAll(generateSilence(charSpaceMs).toList())
                 }
             }
         }
-
         if (config.noiseLevel > 0 && config.noiseType != NoiseType.NONE) {
             val durationMs = result.size.toFloat() / SAMPLE_RATE * 1000
             val noise = generateNoise(durationMs, config.noiseLevel, config.noiseType)
-            for (i in 0 until min(result.size, noise.size)) {
-                result[i] = (result[i].toInt() + noise[i].toInt())
+            for (j in 0 until min(result.size, noise.size)) {
+                result[j] = (result[j].toInt() + noise[j].toInt())
                     .coerceIn(Short.MIN_VALUE.toInt(), Short.MAX_VALUE.toInt())
                     .toShort()
             }
         }
-
         return result.toShortArray()
     }
 
     fun playAudio(samples: ShortArray, onComplete: () -> Unit = {}) {
         stopAudio()
-
         val bufferSize = AudioTrack.getMinBufferSize(
-            SAMPLE_RATE,
-            AudioFormat.CHANNEL_OUT_MONO,
-            AudioFormat.ENCODING_PCM_16BIT
+            SAMPLE_RATE, AudioFormat.CHANNEL_OUT_MONO, AudioFormat.ENCODING_PCM_16BIT
         )
-
         audioTrack = AudioTrack.Builder()
             .setAudioAttributes(
                 AudioAttributes.Builder()
@@ -251,7 +217,6 @@ class MorseAudioEngine {
             .setBufferSizeInBytes(maxOf(bufferSize, samples.size * 2))
             .setTransferMode(AudioTrack.MODE_STATIC)
             .build()
-
         audioTrack?.write(samples, 0, samples.size)
         audioTrack?.setNotificationMarkerPosition(samples.size)
         audioTrack?.setPlaybackPositionUpdateListener(object : AudioTrack.OnPlaybackPositionUpdateListener {
@@ -261,7 +226,6 @@ class MorseAudioEngine {
             }
             override fun onPeriodicNotification(track: AudioTrack?) {}
         })
-
         isPlaying = true
         audioTrack?.play()
     }
@@ -278,11 +242,7 @@ class MorseAudioEngine {
         audioTrack = null
     }
 
-    fun generateFeedbackTone(
-        frequency: Int = 800,
-        durationMs: Float = 50f,
-        volume: Float = 0.3f
-    ): ShortArray {
+    fun generateFeedbackTone(frequency: Int = 800, durationMs: Float = 50f, volume: Float = 0.3f): ShortArray {
         return generateTone(frequency, durationMs, volume, ToneType.SINE)
     }
 
