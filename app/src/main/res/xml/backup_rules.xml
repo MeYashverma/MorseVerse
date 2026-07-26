@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<full-backup-content>
+    <!-- Include database -->
+    <include domain="database" path="morseverse_database" />
+
+    <!-- Include shared preferences -->
+    <include domain="sharedpref" path="morseverse_preferences.xml" />
+
+    <!-- Include files -->
+    <include domain="file" path="audio_cache/" />
+
+    <!-- Exclude sensitive data -->
+    <exclude domain="sharedpref" path="credentials.xml" />
+    <exclude domain="database" path="temp_cache.db" />
+</full-backup-content>

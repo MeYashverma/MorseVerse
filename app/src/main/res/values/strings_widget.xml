@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="widget_practice_description">Shows today\'s practice characters and progress</string>
+    <string name="widget_random_char_description">Shows a random Morse character for quick practice</string>
+    <string name="widget_streak_description">Shows your current practice streak</string>
+    <string name="widget_translate_description">Quick Morse code translator</string>
+</resources>

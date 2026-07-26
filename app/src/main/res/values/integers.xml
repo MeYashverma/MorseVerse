@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Animation durations -->
+    <integer name="anim_duration_fast">150</integer>
+    <integer name="anim_duration_normal">300</integer>
+    <integer name="anim_duration_slow">500</integer>
+    <integer name="anim_duration_extra_slow">1000</integer>
+
+    <!-- Practice settings -->
+    <integer name="default_wpm">20</integer>
+    <integer name="min_wpm">5</integer>
+    <integer name="max_wpm">60</integer>
+
+    <integer name="default_frequency">600</integer>
+    <integer name="min_frequency">300</integer>
+    <integer name="max_frequency">1000</integer>
+
+    <integer name="default_daily_goal_minutes">15</integer>
+    <integer name="min_daily_goal">5</integer>
+    <integer name="max_daily_goal">60</integer>
+
+    <!-- Practice session -->
+    <integer name="default_practice_count">10</integer>
+    <integer name="min_practice_count">5</integer>
+    <integer name="max_practice_count">50</integer>
+
+    <!-- XP rewards -->
+    <integer name="xp_per_correct">5</integer>
+    <integer name="xp_per_session">10</integer>
+    <integer name="xp_accuracy_bonus_max">20</integer>
+    <integer name="xp_speed_bonus_max">50</integer>
+
+    <!-- Streak -->
+    <integer name="streak_bonus_multiplier">2</integer>
+    <integer name="max_streak_bonus">100</integer>
+
+    <!-- Display -->
+    <integer name="recent_sessions_limit">5</integer>
+    <integer name="weak_characters_limit">8</integer>
+    <integer name="common_words_count">100</integer>
+</resources>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MorseVerse</string>
+    <string name="app_tagline">Master Morse Code</string>
+
+    <!-- Navigation -->
+    <string name="nav_home">Home</string>
+    <string name="nav_learn">Learn</string>
+    <string name="nav_practice">Practice</string>
+    <string name="nav_tree">Tree</string>
+    <string name="nav_translate">Translate</string>
+
+    <!-- Home -->
+    <string name="home_greeting">Welcome back!</string>
+    <string name="home_streak">day streak</string>
+    <string name="home_daily_goal">Daily Goal</string>
+    <string name="home_continue">Continue Learning</string>
+    <string name="home_continue_subtitle">Pick up where you left off</string>
+    <string name="home_weak_chars">Weak Characters</string>
+    <string name="home_weak_chars_subtitle">Focus on these to improve</string>
+    <string name="home_challenge">Today\'s Challenge</string>
+    <string name="home_explore">Explore</string>
+
+    <!-- Practice -->
+    <string name="practice_character">Character Practice</string>
+    <string name="practice_word">Word Practice</string>
+    <string name="practice_sentence">Sentence Practice</string>
+    <string name="practice_random">Random Practice</string>
+    <string name="practice_weak">Weak Characters</string>
+    <string name="practice_callsign">Callsign Practice</string>
+    <string name="practice_contest">Contest Practice</string>
+    <string name="practice_timed">Timed Challenge</string>
+    <string name="practice_daily">Daily Challenge</string>
+
+    <!-- Learn -->
+    <string name="learn_koch">Koch Method</string>
+    <string name="learn_farnsworth">Farnsworth</string>
+    <string name="learn_traditional">Traditional</string>
+    <string name="learn_adaptive">Adaptive</string>
+    <string name="learn_story">Story Mode</string>
+
+    <!-- Translator -->
+    <string name="translator_text_to_morse">Text → Morse</string>
+    <string name="translator_morse_to_text">Morse → Text</string>
+    <string name="translator_play">Play Audio</string>
+    <string name="translator_flashlight">Flashlight</string>
+    <string name="translator_copy">Copy</string>
+    <string name="translator_paste">Paste</string>
+
+    <!-- Statistics -->
+    <string name="stats_accuracy">Accuracy</string>
+    <string name="stats_wpm">WPM</string>
+    <string name="stats_characters">Characters</string>
+    <string name="stats_sessions">Sessions</string>
+    <string name="stats_xp">XP</string>
+    <string name="stats_streak">Streak</string>
+
+    <!-- Achievements -->
+    <string name="achievement_first_steps">First Steps</string>
+    <string name="achievement_alphabet_master">Alphabet Master</string>
+    <string name="achievement_speed_demon">Speed Demon</string>
+    <string name="achievement_perfect_10">Perfect 10</string>
+    <string name="achievement_dedicated">Dedicated</string>
+
+    <!-- Settings -->
+    <string name="settings_audio">Audio</string>
+    <string name="settings_wpm">Default WPM</string>
+    <string name="settings_frequency">Frequency</string>
+    <string name="settings_volume">Volume</string>
+    <string name="settings_theme">Theme</string>
+    <string name="settings_haptics">Haptic Feedback</string>
+    <string name="settings_notifications">Notifications</string>
+    <string name="settings_about">About</string>
+
+    <!-- General -->
+    <string name="back">Back</string>
+    <string name="close">Close</string>
+    <string name="play">Play</string>
+    <string name="stop">Stop</string>
+    <string name="practice">Practice</string>
+    <string name="hint">Hint</string>
+    <string name="skip">Skip</string>
+    <string name="done">Done</string>
+    <string name="correct">Correct!</string>
+    <string name="incorrect">Incorrect</string>
+    <string name="session_complete">Session Complete!</string>
+</resources>

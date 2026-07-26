@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- View IDs for widget layouts -->
+    <item name="widget_today_practice_container" type="id" />
+    <item name="widget_today_practice_title" type="id" />
+    <item name="widget_today_practice_chars" type="id" />
+    <item name="widget_today_practice_progress" type="id" />
+    <item name="widget_today_practice_label" type="id" />
+
+    <item name="widget_random_char_container" type="id" />
+    <item name="widget_random_char_title" type="id" />
+    <item name="widget_random_char_letter" type="id" />
+    <item name="widget_random_char_morse" type="id" />
+
+    <item name="widget_streak_container" type="id" />
+    <item name="widget_streak_count" type="id" />
+    <item name="widget_streak_label" type="id" />
+    <item name="widget_streak_flame" type="id" />
+
+    <item name="widget_translate_container" type="id" />
+    <item name="widget_translate_input" type="id" />
+    <item name="widget_translate_output" type="id" />
+    <item name="widget_translate_button" type="id" />
+</resources>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Primary Colors -->
+    <color name="morse_cyan">#FF00D4FF</color>
+    <color name="morse_cyan_dark">#FF0099BB</color>
+    <color name="morse_cyan_container">#FF001F2A</color>
+
+    <!-- Secondary Colors -->
+    <color name="morse_amber">#FFFFB020</color>
+    <color name="morse_amber_dark">#FFCC8C1A</color>
+    <color name="morse_amber_container">#FF2A1D00</color>
+
+    <!-- Tertiary Colors -->
+    <color name="morse_violet">#FFB388FF</color>
+    <color name="morse_violet_dark">#FF8B5CF6</color>
+    <color name="morse_violet_container">#FF1A0D33</color>
+
+    <!-- Status Colors -->
+    <color name="morse_green">#FF22C55E</color>
+    <color name="morse_red">#FFEF4444</color>
+    <color name="morse_yellow">#FFFBBF24</color>
+
+    <!-- Dark Theme -->
+    <color name="dark_background">#FF000000</color>
+    <color name="dark_surface">#FF0A0A0A</color>
+    <color name="dark_surface_variant">#FF141414</color>
+    <color name="dark_on_background">#FFE5E5E5</color>
+    <color name="dark_on_surface">#FFE5E5E5</color>
+    <color name="dark_on_surface_variant">#FF8A8A8A</color>
+    <color name="dark_outline">#FF2A2A2A</color>
+
+    <!-- Light Theme -->
+    <color name="light_background">#FFF8F9FA</color>
+    <color name="light_surface">#FFFFFFFF</color>
+    <color name="light_surface_variant">#FFF1F3F5</color>
+    <color name="light_on_background">#FF1A1A1A</color>
+    <color name="light_on_surface">#FF1A1A1A</color>
+    <color name="light_on_surface_variant">#FF6B7280</color>
+    <color name="light_outline">#FFD1D5DB</color>
+
+    <!-- Mastery Colors -->
+    <color name="mastery_novice">#FF6B7280</color>
+    <color name="mastery_apprentice">#FF3B82F6</color>
+    <color name="mastery_journeyman">#FF8B5CF6</color>
+    <color name="mastery_expert">#FFF59E0B</color>
+    <color name="mastery_master">#FFEF4444</color>
+    <color name="mastery_grandmaster">#FFFFD700</color>
+
+    <!-- Heatmap Colors -->
+    <color name="heatmap_empty">#FF1A1A1A</color>
+    <color name="heatmap_level1">#FF0E4429</color>
+    <color name="heatmap_level2">#FF006D32</color>
+    <color name="heatmap_level3">#FF26A641</color>
+    <color name="heatmap_level4">#FF39D353</color>
+</resources>

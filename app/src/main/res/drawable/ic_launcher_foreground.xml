@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Morse code "MV" for MorseVerse -->
+    <!-- M: -- (two dashes) -->
+    <path
+        android:pathData="M25,44 L35,44"
+        android:strokeWidth="4"
+        android:strokeColor="#00D4FF"
+        android:strokeLineCap="round" />
+    <path
+        android:pathData="M39,44 L49,44"
+        android:strokeWidth="4"
+        android:strokeColor="#00D4FF"
+        android:strokeLineCap="round" />
+
+    <!-- V: ...- -->
+    <path
+        android:pathData="M55,44 L59,44"
+        android:strokeWidth="3"
+        android:strokeColor="#FFB020"
+        android:strokeLineCap="round" />
+    <path
+        android:pathData="M62,44 L66,44"
+        android:strokeWidth="3"
+        android:strokeColor="#FFB020"
+        android:strokeLineCap="round" />
+    <path
+        android:pathData="M69,44 L73,44"
+        android:strokeWidth="3"
+        android:strokeColor="#FFB020"
+        android:strokeLineCap="round" />
+    <path
+        android:pathData="M76,44 L83,44"
+        android:strokeWidth="3"
+        android:strokeColor="#FFB020"
+        android:strokeLineCap="round" />
+
+    <!-- Decorative dots representing tree nodes -->
+    <path
+        android:fillColor="#00D4FF"
+        android:pathData="M54,28 a4,4 0 1,1 0.01,0" />
+    <path
+        android:fillColor="#B388FF"
+        android:pathData="M42,38 a3,3 0 1,1 0.01,0" />
+    <path
+        android:fillColor="#B388FF"
+        android:pathData="M66,38 a3,3 0 1,1 0.01,0" />
+
+    <!-- Connecting lines (tree branches) -->
+    <path
+        android:pathData="M54,32 L42,38"
+        android:strokeWidth="1.5"
+        android:strokeColor="#2A2A2A"
+        android:strokeLineCap="round" />
+    <path
+        android:pathData="M54,32 L66,38"
+        android:strokeWidth="1.5"
+        android:strokeColor="#2A2A2A"
+        android:strokeLineCap="round" />
+
+    <!-- Bottom decorative elements -->
+    <path
+        android:pathData="M35,56 L73,56"
+        android:strokeWidth="1"
+        android:strokeColor="#22C55E"
+        android:strokeLineCap="round"
+        android:strokeAlpha="0.6" />
+
+    <!-- "MORSE" text indicator -->
+    <path
+        android:pathData="M30,66 L37,66"
+        android:strokeWidth="2.5"
+        android:strokeColor="#FFFFFF"
+        android:strokeLineCap="round" />
+    <path
+        android:pathData="M40,66 L47,66"
+        android:strokeWidth="2.5"
+        android:strokeColor="#FFFFFF"
+        android:strokeLineCap="round" />
+</vector>

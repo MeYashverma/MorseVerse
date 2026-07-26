@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Morse Code Reference -->
+    <string-array name="morse_alphabet">
+        <item>A:·—</item>
+        <item>B:—···</item>
+        <item>C:—·—·</item>
+        <item>D:—··</item>
+        <item>E:·</item>
+        <item>F:··—·</item>
+        <item>G:——·</item>
+        <item>H:····</item>
+        <item>I:··</item>
+        <item>J:·———</item>
+        <item>K:—·—</item>
+        <item>L:·—··</item>
+        <item>M:——</item>
+        <item>N:—·</item>
+        <item>O:———</item>
+        <item>P:·——·</item>
+        <item Q:——·—</item>
+        <item>R:·—·</item>
+        <item>S:···</item>
+        <item>T:—</item>
+        <item>U:··—</item>
+        <item>V:···—</item>
+        <item>W:·——</item>
+        <item>X:—··—</item>
+        <item>Y:—·——</item>
+        <item>Z:——··</item>
+    </string-array>
+
+    <string-array name="morse_numbers">
+        <item>0:—————</item>
+        <item>1:·————</item>
+        <item>2:··———</item>
+        <item>3:···——</item>
+        <item>4:····—</item>
+        <item>5:·····</item>
+        <item>6:—····</item>
+        <item>7:——···</item>
+        <item>8:———··</item>
+        <item>9:————·</item>
+    </string-array>
+
+    <string-array name="theme_options">
+        <item>Dark</item>
+        <item>Light</item>
+        <item>AMOLED</item>
+        <item>Material You</item>
+    </string-array>
+
+    <string-array name="wpm_options">
+        <item>5</item>
+        <item>10</item>
+        <item>15</item>
+        <item>20</item>
+        <item>25</item>
+        <item>30</item>
+        <item>35</item>
+        <item>40</item>
+        <item>45</item>
+        <item>50</item>
+        <item>55</item>
+        <item>60</item>
+    </string-array>
+
+    <string-array name="frequency_options">
+        <item>300</item>
+        <item>400</item>
+        <item>500</item>
+        <item>600</item>
+        <item>700</item>
+        <item>800</item>
+        <item>900</item>
+        <item>1000</item>
+    </string-array>
+
+    <string-array name="tone_type_options">
+        <item>Sine</item>
+        <item>Smooth</item>
+        <item>Buzzy</item>
+        <item>Radio</item>
+    </string-array>
+
+    <string-array name="noise_type_options">
+        <item>None</item>
+        <item>Static</item>
+        <item>Rain</item>
+        <item>Weak Signal</item>
+        <item>Contest</item>
+        <item>Radio</item>
+    </string-array>
+
+    <string-array name="learning_method_options">
+        <item>Koch</item>
+        <item>Farnsworth</item>
+        <item>Traditional</item>
+        <item>Adaptive</item>
+    </string-array>
+
+    <string-array name="daily_goal_options">
+        <item>5 minutes</item>
+        <item>10 minutes</item>
+        <item>15 minutes</item>
+        <item>20 minutes</item>
+        <item>30 minutes</item>
+        <item>45 minutes</item>
+        <item>60 minutes</item>
+    </string-array>
+</resources>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Feature flags -->
+    <bool name="enable_haptics">true</bool>
+    <bool name="enable_sound">true</bool>
+    <bool name="enable_notifications">true</bool>
+    <bool name="enable_analytics">false</bool>
+
+    <!-- Default preferences -->
+    <bool name="default_dark_theme">true</bool>
+    <bool name="default_dynamic_color">false</bool>
+    <bool name="default_farnsworth_spacing">false</bool>
+    <bool name="default_large_text">false</bool>
+    <bool name="default_high_contrast">false</bool>
+    <bool name="default_left_handed">false</bool>
+    <bool name="default_one_handed_mode">false</bool>
+
+    <!-- UI settings -->
+    <bool name="show_tutorial_on_first_launch">true</bool>
+    <bool name="show_morse_tree_onboarding">true</bool>
+    <bool name="auto_play_audio_in_practice">true</bool>
+    <bool name="show_hint_button">true</bool>
+    <bool name="show_skip_button">true</bool>
+
+    <!-- Performance -->
+    <bool name="enable_60fps_animation">true</bool>
+    <bool name="enable_smooth_scrolling">true</bool>
+    <bool name="enable_recomposition_highlight">false</bool> <!-- Debug only -->
+</resources>

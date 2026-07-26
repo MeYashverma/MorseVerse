@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <!-- Cache directory for audio files -->
+    <cache-path
+        name="audio_cache"
+        path="audio/" />
+
+    <!-- Files directory for user data -->
+    <files-path
+        name="user_data"
+        path="user_data/" />
+
+    <!-- External files for exports -->
+    <external-files-path
+        name="exports"
+        path="exports/" />
+</paths>

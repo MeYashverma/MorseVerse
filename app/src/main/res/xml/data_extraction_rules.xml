@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data-extraction-rules>
+    <cloud-backup>
+        <include domain="database" path="morseverse_database" />
+        <include domain="sharedpref" path="morseverse_preferences.xml" />
+        <include domain="file" path="audio_cache/" />
+    </cloud-backup>
+
+    <device-transfer>
+        <include domain="database" path="morseverse_database" />
+        <include domain="sharedpref" path="morseverse_preferences.xml" />
+        <include domain="file" path="audio_cache/" />
+        <include domain="file" path="user_data/" />
+    </device-transfer>
+</data-extraction-rules>
