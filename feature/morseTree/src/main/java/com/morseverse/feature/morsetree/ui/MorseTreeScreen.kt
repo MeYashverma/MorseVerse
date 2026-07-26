@@ -295,7 +295,7 @@ fun MorseTreeScreen(
                         modifier = Modifier.align(Alignment.Center)
                     )
                 }
-            } ?: Box(Modifier.fillMaxSize(), Alignment.Center) {
+            } ?: Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
                 CircularProgressIndicator(color = NothingGray500, strokeWidth = 1.5.dp)
             }
 
@@ -363,7 +363,7 @@ private fun DitDahInputPanel(
         ) {
             // Practice target
             if (practiceTarget != null) {
-                Row(Modifier.fillMaxWidth(), Arrangement.Center, Alignment.CenterVertically) {
+                Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center, verticalAlignment = Alignment.CenterVertically) {
                     Text("target ", style = MaterialTheme.typography.labelSmall,
                         color = NothingGray500, letterSpacing = 2.sp)
                     Text(practiceTarget, style = MaterialTheme.typography.headlineMedium,
@@ -381,7 +381,7 @@ private fun DitDahInputPanel(
 
             // Current node
             if (currentNode?.character != null && practiceTarget == null) {
-                Row(Modifier.fillMaxWidth(), Arrangement.Center, Alignment.CenterVertically) {
+                Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center, verticalAlignment = Alignment.CenterVertically) {
                     Text(currentNode.character ?: "",
                         style = MaterialTheme.typography.headlineMedium,
                         fontWeight = FontWeight.Bold, color = NothingRed)
@@ -396,7 +396,7 @@ private fun DitDahInputPanel(
 
             // Input sequence
             if (inputSequence.isNotEmpty()) {
-                Row(Modifier.fillMaxWidth(), Arrangement.Center) {
+                Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center) {
                     inputSequence.forEach { element ->
                         Text(
                             if (element == MorseElement.DIT) "·" else "—",
@@ -415,7 +415,7 @@ private fun DitDahInputPanel(
                 // Reset
                 Box(Modifier.size(48.dp).clip(RoundedCornerShape(0.dp))
                     .border(0.5.dp, NothingGray700, RoundedCornerShape(0.dp))
-                    .clickable(onClick = onReset), Alignment.Center) {
+                    .clickable(onClick = onReset), contentAlignment = Alignment.Center) {
                     Icon(Icons.Filled.Refresh, "Reset", tint = NothingGray500,
                         modifier = Modifier.size(20.dp))
                 }
@@ -424,7 +424,7 @@ private fun DitDahInputPanel(
                 Box(Modifier.weight(1f).height(48.dp)
                     .clip(CircleShape)
                     .border(1.dp, NothingGray600, CircleShape)
-                    .clickable(onClick = onDit), Alignment.Center) {
+                    .clickable(onClick = onDit), contentAlignment = Alignment.Center) {
                     Text("·", style = MaterialTheme.typography.headlineLarge.copy(
                         fontFamily = FontFamily.Monospace),
                         color = NothingGray300, fontWeight = FontWeight.Bold)
@@ -434,7 +434,7 @@ private fun DitDahInputPanel(
                 Box(Modifier.weight(1f).height(48.dp)
                     .clip(RoundedCornerShape(4.dp))
                     .border(1.dp, NothingGray600, RoundedCornerShape(4.dp))
-                    .clickable(onClick = onDah), Alignment.Center) {
+                    .clickable(onClick = onDah), contentAlignment = Alignment.Center) {
                     Text("—", style = MaterialTheme.typography.headlineLarge.copy(
                         fontFamily = FontFamily.Monospace),
                         color = NothingGray300, fontWeight = FontWeight.Bold)
@@ -443,7 +443,7 @@ private fun DitDahInputPanel(
                 // Play audio
                 Box(Modifier.size(48.dp).clip(RoundedCornerShape(0.dp))
                     .border(0.5.dp, NothingGray700, RoundedCornerShape(0.dp))
-                    .clickable(onClick = onPlayAudio), Alignment.Center) {
+                    .clickable(onClick = onPlayAudio), contentAlignment = Alignment.Center) {
                     Icon(Icons.Filled.VolumeUp, "Play", tint = NothingGray500,
                         modifier = Modifier.size(20.dp))
                 }
@@ -758,8 +758,8 @@ private fun PathDisplay(
     ) {
         Row(
             Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
-            Alignment.CenterVertically,
-            Arrangement.spacedBy(4.dp)
+            horizontalArrangement = Arrangement.spacedBy(4.dp),
+            verticalAlignment = Alignment.CenterVertically
         ) {
             Text("path ", style = MaterialTheme.typography.labelSmall,
                 color = NothingGray500, letterSpacing = 2.sp)
@@ -790,7 +790,7 @@ private fun PracticeResultOverlay(isCorrect: Boolean, alpha: Float, modifier: Mo
         modifier = modifier.size(100.dp).graphicsLayer(alpha = alpha)
             .border(1.dp, if (isCorrect) MorseGreen else MorseRed, RoundedCornerShape(0.dp))
             .background(if (isCorrect) MorseGreen.copy(alpha = 0.1f) else MorseRed.copy(alpha = 0.1f)),
-        Alignment.Center
+        contentAlignment = Alignment.Center
     ) {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
             Icon(
@@ -823,7 +823,7 @@ private fun NodeDetailSheet(
     ) {
         // Character
         Box(Modifier.size(72.dp).border(1.dp, NothingGray600, RoundedCornerShape(0.dp)),
-            Alignment.Center) {
+            contentAlignment = Alignment.Center) {
             Text(node.character ?: "", style = MaterialTheme.typography.displaySmall,
                 fontWeight = FontWeight.Bold, color = NothingRed, fontFamily = FontFamily.Monospace)
         }
@@ -839,7 +839,7 @@ private fun NodeDetailSheet(
         Spacer(Modifier.height(12.dp))
 
         // Progress bar — thin, subtle
-        Row(Alignment.CenterVertically, Arrangement.spacedBy(8.dp)) {
+        Row(horizontalArrangement = Arrangement.spacedBy(8.dp), verticalAlignment = Alignment.CenterVertically) {
             Box(Modifier.width(100.dp).height(1.5.dp).background(NothingGray800)) {
                 Box(Modifier.fillMaxHeight().fillMaxWidth(progress).background(NothingGray400))
             }
@@ -895,21 +895,21 @@ private fun TreeLegend(modifier: Modifier = Modifier) {
             Text("legend", style = MaterialTheme.typography.labelSmall,
                 color = NothingGray500, letterSpacing = 2.sp)
 
-            Row(Alignment.CenterVertically, Arrangement.spacedBy(8.dp)) {
+            Row(horizontalArrangement = Arrangement.spacedBy(8.dp), verticalAlignment = Alignment.CenterVertically) {
                 Canvas(Modifier.size(10.dp)) {
                     drawCircle(NothingGray500, radius = size.minDimension / 2f, style = Stroke(1.5f))
                 }
                 Text("· dit (circle)", style = MaterialTheme.typography.bodySmall.copy(
                     fontFamily = FontFamily.Monospace), color = NothingGray500)
             }
-            Row(Alignment.CenterVertically, Arrangement.spacedBy(8.dp)) {
+            Row(horizontalArrangement = Arrangement.spacedBy(8.dp), verticalAlignment = Alignment.CenterVertically) {
                 Canvas(Modifier.size(10.dp)) {
                     drawRoundRect(NothingGray500, cornerRadius = CornerRadius(1.5f), style = Stroke(1.5f))
                 }
                 Text("— dah (rect)", style = MaterialTheme.typography.bodySmall.copy(
                     fontFamily = FontFamily.Monospace), color = NothingGray500)
             }
-            Row(Alignment.CenterVertically, Arrangement.spacedBy(8.dp)) {
+            Row(horizontalArrangement = Arrangement.spacedBy(8.dp), verticalAlignment = Alignment.CenterVertically) {
                 Box(Modifier.size(10.dp).background(NothingRed.copy(alpha = 0.2f)))
                 Text("active path", style = MaterialTheme.typography.bodySmall, color = NothingGray500)
             }
