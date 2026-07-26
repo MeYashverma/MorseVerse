@@ -116,7 +116,7 @@ fun LearnScreen(
 
             item {
                 ProgressOverviewCard(
-                    charactersLearned = kochProgress.count { it.isCompleted },
+                    charactersLearned = kochProgress.count { it.mastery >= 0.8f },
                     totalCharacters = 40,
                     currentLesson = currentLesson
                 )
@@ -190,9 +190,9 @@ fun LearnScreen(
                 LessonCard(
                     lessonNumber = index + 1,
                     characters = group,
-                    isCompleted = index < kochProgress.count { it.isCompleted },
-                    isCurrent = index == kochProgress.count { it.isCompleted },
-                    isLocked = index > kochProgress.count { it.isCompleted },
+                    isCompleted = index < kochProgress.count { it.mastery >= 0.8f },
+                    isCurrent = index == kochProgress.count { it.mastery >= 0.8f },
+                    isLocked = index > kochProgress.count { it.mastery >= 0.8f },
                     onClick = {
                         haptic.performHapticFeedback(HapticFeedbackType.LongPress)
                         viewModel.selectLesson(index)
