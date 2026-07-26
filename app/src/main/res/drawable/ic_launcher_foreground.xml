@@ -6,7 +6,7 @@
     android:viewportHeight="108">
 
     <!-- Morse code "MV" for MorseVerse -->
-    <!-- M: -- (two dashes) -->
+    <!-- M: two dashes -->
     <path
         android:pathData="M25,44 L35,44"
         android:strokeWidth="4"
