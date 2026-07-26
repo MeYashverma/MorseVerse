@@ -132,7 +132,7 @@ fun HomeScreen(
             item {
                 QuickStatsRow(
                     accuracy = profile.currentAccuracy,
-                    wpm = profile.currentWpm,
+                    wpm = profile.currentWpm.toFloat(),
                     totalChars = profile.totalCharacters,
                     sessions = profile.totalSessions
                 )

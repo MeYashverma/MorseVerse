@@ -7,6 +7,9 @@ import com.morseverse.core.domain.repository.MorseRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
+import kotlinx.datetime.Clock
+import kotlinx.datetime.TimeZone
+import kotlinx.datetime.todayIn
 import javax.inject.Inject
 
 @HiltViewModel
@@ -18,9 +21,9 @@ class HomeViewModel @Inject constructor(
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), UserProfile())
 
     val dailyStats: StateFlow<DailyStats> = repository.getDailyStats(
-        kotlinx.datetime.Clock.System.todayIn(kotlinx.datetime.TimeZone.currentSystemDefault())
+        Clock.System.todayIn(TimeZone.currentSystemDefault())
     ).stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000),
-        DailyStats(date = kotlinx.datetime.Clock.System.todayIn(kotlinx.datetime.TimeZone.currentSystemDefault()))
+        DailyStats(date = Clock.System.todayIn(TimeZone.currentSystemDefault()))
     )
 
     val weakCharacters: StateFlow<List<String>> = repository.getWeakCharacters()

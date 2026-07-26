@@ -269,7 +269,7 @@ private fun DrawScope.drawMorseTree(
         val nodeAlpha = ((animationProgress - depth * 0.1f) * 3f).coerceIn(0f, 1f)
         if (nodeAlpha <= 0f) return
 
-        val nodeRadius = baseNodeRadius * (1f - depth * 0.05f).coerceAtMin(0.6f)
+        val nodeRadius = baseNodeRadius * (1f - depth * 0.05f).coerceAtLeast(0.6f)
         val spacing = baseHorizontalSpacing / (depth + 1).coerceAtLeast(1)
 
         // Draw edge to parent
@@ -420,7 +420,7 @@ private fun findNodeAtPosition(
         y: Float,
         depth: Int
     ) {
-        val nodeRadius = baseNodeRadius * (1f - depth * 0.05f).coerceAtMin(0.6f)
+        val nodeRadius = baseNodeRadius * (1f - depth * 0.05f).coerceAtLeast(0.6f)
         val distance = kotlin.math.sqrt(
             (tapOffset.x - x) * (tapOffset.x - x) +
             (tapOffset.y - y) * (tapOffset.y - y)
