@@ -4,9 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.animation.*
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
@@ -37,10 +35,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            MorseVerseTheme(
-                themeMode = ThemeMode.DARK,
-                dynamicColor = false
-            ) {
+            MorseVerseTheme(themeMode = ThemeMode.DARK, dynamicColor = false) {
                 MorseVerseMainContent()
             }
         }
@@ -61,109 +56,76 @@ fun MorseVerseMainContent() {
     val haptic = LocalHapticFeedback.current
 
     val bottomNavItems = listOf(
-        BottomNavItem(Routes.HOME, "Home", Icons.Filled.Home, Icons.Outlined.Home),
-        BottomNavItem(Routes.LEARN, "Learn", Icons.Filled.School, Icons.Outlined.School),
-        BottomNavItem(Routes.PRACTICE, "Practice", Icons.Filled.FitnessCenter, Icons.Outlined.FitnessCenter),
-        BottomNavItem(Routes.MORSE_TREE, "Tree", Icons.Filled.AccountTree, Icons.Outlined.AccountTree),
-        BottomNavItem(Routes.TRANSLATOR, "Translate", Icons.Filled.Translate, Icons.Outlined.Translate)
+        BottomNavItem(Routes.HOME, "home", Icons.Filled.Home, Icons.Outlined.Home),
+        BottomNavItem(Routes.LEARN, "learn", Icons.Filled.School, Icons.Outlined.School),
+        BottomNavItem(Routes.PRACTICE, "practice", Icons.Filled.FitnessCenter, Icons.Outlined.FitnessCenter),
+        BottomNavItem(Routes.MORSE_TREE, "tree", Icons.Filled.AccountTree, Icons.Outlined.AccountTree),
+        BottomNavItem(Routes.TRANSLATOR, "translate", Icons.Filled.Translate, Icons.Outlined.Translate)
     )
 
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentDestination = navBackStackEntry?.destination
-
     val showBottomBar = bottomNavItems.any { item ->
         currentDestination?.hierarchy?.any { it.route == item.route } == true
     }
 
     Scaffold(
         modifier = Modifier.fillMaxSize(),
-        containerColor = MaterialTheme.colorScheme.background,
+        containerColor = DarkBackground,
         bottomBar = {
             if (showBottomBar) {
-                // Nothing OS style: thin border, no elevation, sharp corners
-                Surface(
-                    color = DarkSurface,
-                    tonalElevation = 0.dp
-                ) {
-                    Column {
-                        // Top border line (Nothing-style)
-                        Box(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .height(1.dp)
-                                .background(DarkOutline)
-                        )
-
-                        NavigationBar(
-                            containerColor = DarkSurface,
-                            tonalElevation = 0.dp,
-                            modifier = Modifier.height(72.dp)
-                        ) {
-                            bottomNavItems.forEach { item ->
-                                val selected = currentDestination?.hierarchy?.any {
-                                    it.route == item.route
-                                } == true
-
-                                NavigationBarItem(
-                                    selected = selected,
-                                    onClick = {
-                                        haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove)
-                                        navController.navigate(item.route) {
-                                            popUpTo(navController.graph.findStartDestination().id) {
-                                                saveState = true
-                                            }
-                                            launchSingleTop = true
-                                            restoreState = true
-                                        }
-                                    },
-                                    icon = {
-                                        Column {
-                                            Icon(
-                                                imageVector = if (selected) item.selectedIcon else item.unselectedIcon,
-                                                contentDescription = item.label,
-                                                modifier = Modifier.size(22.dp)
-                                            )
-                                            // Red dot indicator for selected (Nothing-style)
-                                            if (selected) {
-                                                Spacer(Modifier.height(2.dp))
-                                                Box(
-                                                    modifier = Modifier
-                                                        .size(4.dp)
-                                                        .background(NothingRed)
-                                                )
-                                            }
-                                        }
-                                    },
-                                    label = {
-                                        Text(
-                                            text = item.label.uppercase(),
-                                            maxLines = 1,
-                                            overflow = TextOverflow.Ellipsis,
-                                            style = MaterialTheme.typography.labelSmall,
-                                            letterSpacing = if (selected) 1.sp else 0.5.sp,
-                                            fontWeight = if (selected) FontWeight.Bold else FontWeight.Normal
+                Column {
+                    // Subtle top border
+                    Box(Modifier.fillMaxWidth().height(0.5.dp).background(NothingGray800))
+                    NavigationBar(
+                        containerColor = DarkSurface,
+                        tonalElevation = 0.dp,
+                        modifier = Modifier.height(68.dp)
+                    ) {
+                        bottomNavItems.forEach { item ->
+                            val selected = currentDestination?.hierarchy?.any { it.route == item.route } == true
+                            NavigationBarItem(
+                                selected = selected,
+                                onClick = {
+                                    haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove)
+                                    navController.navigate(item.route) {
+                                        popUpTo(navController.graph.findStartDestination().id) { saveState = true }
+                                        launchSingleTop = true; restoreState = true
+                                    }
+                                },
+                                icon = {
+                                    Column {
+                                        Icon(
+                                            if (selected) item.selectedIcon else item.unselectedIcon,
+                                            item.label, modifier = Modifier.size(20.dp)
                                         )
-                                    },
-                                    colors = NavigationBarItemDefaults.colors(
-                                        selectedIconColor = NothingRed,
-                                        selectedTextColor = NothingRed,
-                                        unselectedIconColor = DarkOnSurfaceVariant,
-                                        unselectedTextColor = DarkOnSurfaceVariant,
-                                        indicatorColor = Color.Transparent // No filled indicator
-                                    )
+                                        if (selected) {
+                                            Spacer(Modifier.height(3.dp))
+                                            Box(Modifier.size(3.dp).background(NothingRed.copy(alpha = 0.7f)))
+                                        }
+                                    }
+                                },
+                                label = {
+                                    Text(item.label, maxLines = 1, overflow = TextOverflow.Ellipsis,
+                                        style = MaterialTheme.typography.labelSmall,
+                                        letterSpacing = if (selected) 1.sp else 0.5.sp,
+                                        fontWeight = if (selected) FontWeight.Normal else FontWeight.Light)
+                                },
+                                colors = NavigationBarItemDefaults.colors(
+                                    selectedIconColor = NothingGray300,
+                                    selectedTextColor = NothingGray300,
+                                    unselectedIconColor = NothingGray600,
+                                    unselectedTextColor = NothingGray600,
+                                    indicatorColor = Color.Transparent
                                 )
-                            }
+                            )
                         }
                     }
                 }
             }
         }
     ) { innerPadding ->
-        Box(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(innerPadding)
-        ) {
+        Box(Modifier.fillMaxSize().padding(innerPadding)) {
             MorseVerseNavGraph(navController = navController)
         }
     }
