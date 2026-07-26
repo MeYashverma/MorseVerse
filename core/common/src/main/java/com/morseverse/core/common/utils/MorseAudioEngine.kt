@@ -2,40 +2,53 @@ package com.morseverse.core.common.utils
 
 import android.media.AudioAttributes
 import android.media.AudioFormat
-import android.media.AudioManager
 import android.media.AudioTrack
-import com.morseverse.core.domain.models.AudioConfig
-import com.morseverse.core.domain.models.MorseTiming
-import com.morseverse.core.domain.models.NoiseType
-import com.morseverse.core.domain.models.ToneType
 import kotlin.math.PI
 import kotlin.math.min
 import kotlin.math.sin
 
+// ── Local type definitions (duplicated from domain to avoid circular dependency) ──
+
+enum class ToneType { SINE, SMOOTH, BUZZY, RADIO }
+enum class NoiseType { NONE, STATIC, RAIN, WEAK_SIGNAL, CONTEST, RADIO }
+
+data class AudioConfig(
+    val wpm: Int = 20,
+    val frequency: Int = 600,
+    val volume: Float = 0.8f,
+    val farnsworthSpacing: Boolean = false,
+    val farnsworthWpm: Int = 15,
+    val noiseLevel: Float = 0f,
+    val noiseType: NoiseType = NoiseType.NONE,
+    val toneType: ToneType = ToneType.SINE
+)
+
+object MorseTiming {
+    const val DIT = 1
+    const val DAH = 3
+    const val SYMBOL_SPACE = 1
+    const val CHARACTER_SPACE = 3
+    const val WORD_SPACE = 7
+}
+
 /**
- * High-performance Morse code audio tone generator
- * Generates PCM audio for Morse code at any WPM, frequency, and volume
+ * High-performance Morse code audio tone generator.
+ * Generates PCM audio for Morse code at any WPM, frequency, and volume.
  */
 class MorseAudioEngine {
 
     companion object {
         private const val SAMPLE_RATE = 44100
-        private const val PARIS_UNIT = 50 // standard PARIS timing
+        private const val PARIS_UNIT = 50
     }
 
     private var audioTrack: AudioTrack? = null
     private var isPlaying = false
 
-    /**
-     * Calculate the duration of a dit in milliseconds at given WPM
-     */
     fun ditDurationMs(wpm: Int): Float {
-        return (PARIS_UNIT.toFloat() / wpm) * 12f // 1200 / WPM
+        return (PARIS_UNIT.toFloat() / wpm) * 12f
     }
 
-    /**
-     * Generate PCM samples for a sine wave tone
-     */
     private fun generateTone(
         frequency: Int,
         durationMs: Float,
@@ -67,7 +80,6 @@ class MorseAudioEngine {
                 }
             }
 
-            // Apply envelope to prevent clicks (5ms attack/release)
             val envelopeSamples = (SAMPLE_RATE * 0.005).toInt()
             val envelope = when {
                 i < envelopeSamples -> i.toDouble() / envelopeSamples
@@ -82,17 +94,11 @@ class MorseAudioEngine {
         return samples
     }
 
-    /**
-     * Generate silence
-     */
     private fun generateSilence(durationMs: Float): ShortArray {
         val numSamples = (SAMPLE_RATE * durationMs / 1000).toInt()
         return ShortArray(numSamples)
     }
 
-    /**
-     * Generate noise overlay
-     */
     private fun generateNoise(durationMs: Float, level: Float, noiseType: NoiseType): ShortArray {
         if (noiseType == NoiseType.NONE || level == 0f) return ShortArray(0)
 
@@ -128,13 +134,7 @@ class MorseAudioEngine {
         return samples
     }
 
-    /**
-     * Generate audio samples for a Morse string (e.g., ".- -... -.-.")
-     */
-    fun generateMorseAudio(
-        morse: String,
-        config: AudioConfig
-    ): ShortArray {
+    fun generateMorseAudio(morse: String, config: AudioConfig): ShortArray {
         val ditMs = ditDurationMs(config.wpm)
         val dahMs = ditMs * MorseTiming.DAH
         val symbolSpaceMs = ditMs * MorseTiming.SYMBOL_SPACE
@@ -167,7 +167,6 @@ class MorseAudioEngine {
                     }
                 }
                 ' ' -> {
-                    // Check for word space (multiple spaces or slash)
                     if (i + 1 < morse.length && morse[i + 1] == ' ') {
                         result += generateSilence(wordSpaceMs - charSpaceMs)
                         while (i + 1 < morse.length && morse[i + 1] == ' ') i++
@@ -182,9 +181,6 @@ class MorseAudioEngine {
         return result.toShortArray()
     }
 
-    /**
-     * Generate audio for a full text string
-     */
     fun generateTextAudio(
         text: String,
         config: AudioConfig,
@@ -216,7 +212,6 @@ class MorseAudioEngine {
             }
         }
 
-        // Add noise if needed
         if (config.noiseLevel > 0 && config.noiseType != NoiseType.NONE) {
             val durationMs = result.size.toFloat() / SAMPLE_RATE * 1000
             val noise = generateNoise(durationMs, config.noiseLevel, config.noiseType)
@@ -230,9 +225,6 @@ class MorseAudioEngine {
         return result.toShortArray()
     }
 
-    /**
-     * Play audio samples through AudioTrack
-     */
     fun playAudio(samples: ShortArray, onComplete: () -> Unit = {}) {
         stopAudio()
 
@@ -274,9 +266,6 @@ class MorseAudioEngine {
         audioTrack?.play()
     }
 
-    /**
-     * Stop audio playback
-     */
     fun stopAudio() {
         isPlaying = false
         audioTrack?.let { track ->
@@ -284,16 +273,11 @@ class MorseAudioEngine {
                 track.stop()
                 track.flush()
                 track.release()
-            } catch (e: Exception) {
-                // Ignore cleanup errors
-            }
+            } catch (_: Exception) { }
         }
         audioTrack = null
     }
 
-    /**
-     * Generate a short tone for UI feedback
-     */
     fun generateFeedbackTone(
         frequency: Int = 800,
         durationMs: Float = 50f,
