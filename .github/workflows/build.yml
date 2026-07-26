@@ -39,9 +39,6 @@ jobs:
     - name: Build Debug APK
       run: ./gradlew assembleDebug
 
-    - name: Build Release APK
-      run: ./gradlew assembleRelease
-
     - name: Run Lint
       run: ./gradlew lintDebug
       continue-on-error: true
@@ -54,12 +51,6 @@ jobs:
       with:
         name: debug-apk
         path: app/build/outputs/apk/debug/*.apk
-
-    - name: Upload Release APK
-      uses: actions/upload-artifact@v4
-      with:
-        name: release-apk
-        path: app/build/outputs/apk/release/*.apk
 
     - name: Upload Lint Report
       if: always()
