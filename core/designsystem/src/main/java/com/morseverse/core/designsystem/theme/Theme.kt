@@ -13,8 +13,8 @@ import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
 
 // ═══════════════════════════════════════════════════════════════════
-// MORSEVERSE THEME SYSTEM
-// Supports: Light, Dark, AMOLED, Material You
+// MORSEVERSE THEME SYSTEM — Nothing OS Aesthetic
+// OLED-first, monochrome + red accent, minimal & geometric
 // ═══════════════════════════════════════════════════════════════════
 
 enum class ThemeMode { LIGHT, DARK, AMOLED, MATERIAL_YOU }
@@ -160,6 +160,7 @@ object MorseVerseColors {
     val green get() = MorseGreen
     val red get() = MorseRed
     val yellow get() = MorseYellow
+    val nothingRed get() = NothingRed
 
     val masteryNovice get() = MasteryNovice
     val masteryApprentice get() = MasteryApprentice

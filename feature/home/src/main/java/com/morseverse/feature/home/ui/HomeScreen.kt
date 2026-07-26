@@ -4,6 +4,7 @@ import androidx.compose.animation.*
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -26,11 +27,17 @@ import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.hapticfeedback.HapticFeedbackType
 import androidx.compose.ui.platform.LocalHapticFeedback
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.morseverse.core.designsystem.theme.*
+
+// ═══════════════════════════════════════════════════════════════════
+// HOME SCREEN — Nothing OS Aesthetic
+// Pure black OLED, monochrome + red accent, geometric & minimal
+// ═══════════════════════════════════════════════════════════════════
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -60,19 +67,20 @@ fun HomeScreen(
         topBar = {
             TopAppBar(
                 title = {
-                    Column {
-                        Text(
-                            "MorseVerse",
-                            style = MaterialTheme.typography.headlineMedium,
-                            fontWeight = FontWeight.Bold
-                        )
-                    }
+                    Text(
+                        "MORSEVERSE",
+                        style = MaterialTheme.typography.headlineMedium,
+                        fontWeight = FontWeight.Bold,
+                        letterSpacing = 4.sp,
+                        color = MaterialTheme.colorScheme.onBackground
+                    )
                 },
                 actions = {
-                    // XP Badge
+                    // XP Badge — Nothing-style: outlined, sharp corners
                     Surface(
-                        shape = RoundedCornerShape(20.dp),
-                        color = MorseAmber.copy(alpha = 0.15f),
+                        shape = RoundedCornerShape(0.dp),
+                        color = Color.Transparent,
+                        border = androidx.compose.foundation.BorderStroke(1.dp, DarkOutline),
                         modifier = Modifier.clickable { onNavigateToAchievements() }
                     ) {
                         Row(
@@ -80,17 +88,19 @@ fun HomeScreen(
                             verticalAlignment = Alignment.CenterVertically,
                             horizontalArrangement = Arrangement.spacedBy(4.dp)
                         ) {
-                            Icon(
-                                Icons.Filled.Star,
-                                contentDescription = null,
-                                tint = MorseAmber,
-                                modifier = Modifier.size(16.dp)
+                            Text(
+                                "XP",
+                                style = MaterialTheme.typography.labelSmall,
+                                color = NothingRed,
+                                letterSpacing = 2.sp,
+                                fontWeight = FontWeight.Bold
                             )
                             Text(
                                 "${profile.totalXp}",
                                 style = MaterialTheme.typography.labelLarge,
-                                color = MorseAmber,
-                                fontWeight = FontWeight.Bold
+                                color = DarkOnBackground,
+                                fontWeight = FontWeight.Bold,
+                                fontFamily = FontFamily.Monospace
                             )
                         }
                     }
@@ -101,7 +111,7 @@ fun HomeScreen(
                         Icon(
                             Icons.Outlined.Settings,
                             contentDescription = "Settings",
-                            tint = MaterialTheme.colorScheme.onSurfaceVariant
+                            tint = DarkOnSurfaceVariant
                         )
                     }
                 },
@@ -159,10 +169,10 @@ fun HomeScreen(
             if (weakCharacters.isNotEmpty()) {
                 item {
                     SectionHeader(
-                        title = "Weak Characters",
+                        title = "WEAK CHARACTERS",
                         subtitle = "Focus on these to improve",
                         icon = Icons.Filled.Warning,
-                        iconColor = MorseAmber
+                        iconColor = NothingRed
                     )
                 }
 
@@ -185,10 +195,10 @@ fun HomeScreen(
             // ─── FEATURE CARDS ─────────────────────────────────────────
             item {
                 SectionHeader(
-                    title = "Explore",
+                    title = "EXPLORE",
                     subtitle = "Discover all features",
                     icon = Icons.Filled.Explore,
-                    iconColor = MorseCyan
+                    iconColor = DarkOnSurfaceVariant
                 )
             }
 
@@ -205,10 +215,10 @@ fun HomeScreen(
             if (recentSessions.isNotEmpty()) {
                 item {
                     SectionHeader(
-                        title = "Recent Activity",
+                        title = "RECENT ACTIVITY",
                         subtitle = "Your latest sessions",
                         icon = Icons.Filled.History,
-                        iconColor = MorseViolet
+                        iconColor = DarkOnSurfaceVariant
                     )
                 }
 
@@ -227,7 +237,7 @@ fun HomeScreen(
 }
 
 // ═══════════════════════════════════════════════════════════════════
-// COMPONENTS
+// COMPONENTS — Nothing OS Aesthetic
 // ═══════════════════════════════════════════════════════════════════
 
 @Composable
@@ -238,14 +248,14 @@ private fun StreakGoalCard(
     dailyGoalMet: Boolean
 ) {
     val progress = (dailyMinutes.toFloat() / goalMinutes).coerceIn(0f, 1f)
-    val haptic = LocalHapticFeedback.current
 
     Surface(
         modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = 16.dp, vertical = 8.dp),
-        shape = RoundedCornerShape(24.dp),
-        color = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f)
+        shape = RoundedCornerShape(0.dp), // Nothing: sharp corners
+        color = Color.Transparent,
+        border = androidx.compose.foundation.BorderStroke(1.dp, DarkOutline)
     ) {
         Column(modifier = Modifier.padding(20.dp)) {
             Row(
@@ -261,29 +271,32 @@ private fun StreakGoalCard(
                     Box(
                         modifier = Modifier
                             .size(48.dp)
-                            .clip(CircleShape)
-                            .background(
-                                if (streak > 0) MorseAmber.copy(alpha = 0.15f)
-                                else MaterialTheme.colorScheme.surfaceVariant
+                            .border(
+                                1.dp,
+                                if (streak > 0) NothingRed else DarkOutline,
+                                RoundedCornerShape(0.dp)
                             ),
                         contentAlignment = Alignment.Center
                     ) {
                         Text(
-                            "🔥",
-                            fontSize = 24.sp
+                            "${streak}",
+                            style = MaterialTheme.typography.headlineSmall,
+                            fontWeight = FontWeight.Bold,
+                            color = if (streak > 0) NothingRed else DarkOnSurfaceVariant,
+                            fontFamily = FontFamily.Monospace
                         )
                     }
                     Column {
                         Text(
-                            "$streak",
-                            style = MaterialTheme.typography.headlineMedium,
-                            fontWeight = FontWeight.Bold,
-                            color = if (streak > 0) MorseAmber else MaterialTheme.colorScheme.onSurface
+                            "STREAK",
+                            style = MaterialTheme.typography.labelSmall,
+                            color = DarkOnSurfaceVariant,
+                            letterSpacing = 2.sp
                         )
                         Text(
-                            "day streak",
-                            style = MaterialTheme.typography.bodySmall,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                            "$streak days",
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = DarkOnBackground
                         )
                     }
                 }
@@ -291,38 +304,35 @@ private fun StreakGoalCard(
                 // Daily Goal
                 Column(horizontalAlignment = Alignment.End) {
                     Text(
-                        "$dailyMinutes / $goalMinutes min",
+                        "$dailyMinutes / $goalMinutes MIN",
                         style = MaterialTheme.typography.titleMedium,
-                        fontWeight = FontWeight.SemiBold
+                        fontWeight = FontWeight.Bold,
+                        fontFamily = FontFamily.Monospace,
+                        color = DarkOnBackground
                     )
                     Text(
-                        if (dailyGoalMet) "Goal completed! ✓" else "Daily goal",
-                        style = MaterialTheme.typography.bodySmall,
-                        color = if (dailyGoalMet) MorseGreen else MaterialTheme.colorScheme.onSurfaceVariant
+                        if (dailyGoalMet) "COMPLETED ✓" else "DAILY GOAL",
+                        style = MaterialTheme.typography.labelSmall,
+                        color = if (dailyGoalMet) MorseGreen else DarkOnSurfaceVariant,
+                        letterSpacing = 1.sp
                     )
                 }
             }
 
             Spacer(Modifier.height(16.dp))
 
-            // Progress Bar
+            // Progress Bar — Nothing-style: thin, red accent
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(8.dp)
-                    .clip(RoundedCornerShape(4.dp))
-                    .background(MaterialTheme.colorScheme.surfaceVariant)
+                    .height(2.dp)
+                    .background(DarkOutline)
             ) {
                 Box(
                     modifier = Modifier
                         .fillMaxWidth(progress)
                         .fillMaxHeight()
-                        .clip(RoundedCornerShape(4.dp))
-                        .background(
-                            Brush.horizontalGradient(
-                                if (dailyGoalMet) GradientGreenToCyan else GradientCyanToViolet
-                            )
-                        )
+                        .background(if (dailyGoalMet) MorseGreen else NothingRed)
                 )
             }
         }
@@ -345,30 +355,26 @@ private fun QuickStatsRow(
         StatCard(
             modifier = Modifier.weight(1f),
             value = "${(accuracy * 100).toInt()}%",
-            label = "Accuracy",
-            icon = Icons.Filled.GpsFixed,
-            color = MorseGreen
+            label = "ACCURACY",
+            color = DarkOnBackground
         )
         StatCard(
             modifier = Modifier.weight(1f),
             value = "${wpm.toInt()}",
             label = "WPM",
-            icon = Icons.Filled.Speed,
-            color = MorseCyan
+            color = NothingRed
         )
         StatCard(
             modifier = Modifier.weight(1f),
             value = formatNumber(totalChars),
-            label = "Characters",
-            icon = Icons.Filled.TextFields,
-            color = MorseAmber
+            label = "CHARS",
+            color = DarkOnBackground
         )
         StatCard(
             modifier = Modifier.weight(1f),
             value = "$sessions",
-            label = "Sessions",
-            icon = Icons.Filled.History,
-            color = MorseViolet
+            label = "SESSIONS",
+            color = DarkOnBackground
         )
     }
 }
@@ -378,34 +384,31 @@ private fun StatCard(
     modifier: Modifier = Modifier,
     value: String,
     label: String,
-    icon: ImageVector,
     color: Color
 ) {
     Surface(
         modifier = modifier,
-        shape = RoundedCornerShape(16.dp),
-        color = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.4f)
+        shape = RoundedCornerShape(0.dp),
+        color = Color.Transparent,
+        border = androidx.compose.foundation.BorderStroke(1.dp, DarkOutline)
     ) {
         Column(
             modifier = Modifier.padding(12.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(4.dp)
         ) {
-            Icon(
-                icon,
-                contentDescription = null,
-                tint = color,
-                modifier = Modifier.size(18.dp)
-            )
             Text(
                 value,
                 style = MaterialTheme.typography.titleMedium,
-                fontWeight = FontWeight.Bold
+                fontWeight = FontWeight.Bold,
+                color = color,
+                fontFamily = FontFamily.Monospace
             )
             Text(
                 label,
                 style = MaterialTheme.typography.labelSmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant
+                color = DarkOnSurfaceVariant,
+                letterSpacing = 1.sp
             )
         }
     }
@@ -415,14 +418,14 @@ private fun StatCard(
 private fun ContinueLessonCard(onClick: () -> Unit) {
     val haptic = LocalHapticFeedback.current
     val infiniteTransition = rememberInfiniteTransition(label = "pulse")
-    val glowAlpha by infiniteTransition.animateFloat(
+    val borderAlpha by infiniteTransition.animateFloat(
         initialValue = 0.3f,
-        targetValue = 0.7f,
+        targetValue = 1f,
         animationSpec = infiniteRepeatable(
             animation = tween(2000, easing = FastOutSlowInEasing),
             repeatMode = RepeatMode.Reverse
         ),
-        label = "glow"
+        label = "borderAlpha"
     )
 
     Surface(
@@ -433,8 +436,12 @@ private fun ContinueLessonCard(onClick: () -> Unit) {
                 haptic.performHapticFeedback(HapticFeedbackType.LongPress)
                 onClick()
             },
-        shape = RoundedCornerShape(20.dp),
-        color = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f)
+        shape = RoundedCornerShape(0.dp),
+        color = Color.Transparent,
+        border = androidx.compose.foundation.BorderStroke(
+            1.dp,
+            NothingRed.copy(alpha = borderAlpha)
+        )
     ) {
         Row(
             modifier = Modifier.padding(20.dp),
@@ -443,43 +450,37 @@ private fun ContinueLessonCard(onClick: () -> Unit) {
         ) {
             Box(
                 modifier = Modifier
-                    .size(52.dp)
-                    .clip(RoundedCornerShape(16.dp))
-                    .background(
-                        Brush.radialGradient(
-                            colors = listOf(
-                                MorseCyan.copy(alpha = glowAlpha),
-                                MorseCyan.copy(alpha = 0.1f)
-                            )
-                        )
-                    ),
+                    .size(48.dp)
+                    .border(1.dp, NothingRed, RoundedCornerShape(0.dp)),
                 contentAlignment = Alignment.Center
             ) {
                 Icon(
                     Icons.Filled.PlayArrow,
                     contentDescription = null,
-                    tint = MorseCyan,
-                    modifier = Modifier.size(28.dp)
+                    tint = NothingRed,
+                    modifier = Modifier.size(24.dp)
                 )
             }
 
             Column(modifier = Modifier.weight(1f)) {
                 Text(
-                    "Continue Learning",
+                    "CONTINUE LEARNING",
                     style = MaterialTheme.typography.titleMedium,
-                    fontWeight = FontWeight.SemiBold
+                    fontWeight = FontWeight.Bold,
+                    letterSpacing = 1.sp,
+                    color = DarkOnBackground
                 )
                 Text(
                     "Pick up where you left off",
                     style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                    color = DarkOnSurfaceVariant
                 )
             }
 
             Icon(
                 Icons.Filled.ChevronRight,
                 contentDescription = null,
-                tint = MaterialTheme.colorScheme.onSurfaceVariant
+                tint = DarkOnSurfaceVariant
             )
         }
     }
@@ -503,8 +504,7 @@ private fun QuickActionsSection(
         QuickActionButton(
             modifier = Modifier.weight(1f),
             icon = Icons.Filled.FitnessCenter,
-            label = "Practice",
-            color = MorseCyan,
+            label = "PRACTICE",
             onClick = {
                 haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove)
                 onPractice()
@@ -513,8 +513,7 @@ private fun QuickActionsSection(
         QuickActionButton(
             modifier = Modifier.weight(1f),
             icon = Icons.Filled.Translate,
-            label = "Translate",
-            color = MorseAmber,
+            label = "TRANSLATE",
             onClick = {
                 haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove)
                 onTranslate()
@@ -523,8 +522,7 @@ private fun QuickActionsSection(
         QuickActionButton(
             modifier = Modifier.weight(1f),
             icon = Icons.Filled.AccountTree,
-            label = "Tree",
-            color = MorseGreen,
+            label = "TREE",
             onClick = {
                 haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove)
                 onTree()
@@ -533,8 +531,7 @@ private fun QuickActionsSection(
         QuickActionButton(
             modifier = Modifier.weight(1f),
             icon = Icons.Filled.Rocket,
-            label = "Story",
-            color = MorseViolet,
+            label = "STORY",
             onClick = {
                 haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove)
                 onStory()
@@ -548,13 +545,13 @@ private fun QuickActionButton(
     modifier: Modifier = Modifier,
     icon: ImageVector,
     label: String,
-    color: Color,
     onClick: () -> Unit
 ) {
     Surface(
         modifier = modifier.clickable(onClick = onClick),
-        shape = RoundedCornerShape(16.dp),
-        color = color.copy(alpha = 0.1f)
+        shape = RoundedCornerShape(0.dp),
+        color = Color.Transparent,
+        border = androidx.compose.foundation.BorderStroke(1.dp, DarkOutline)
     ) {
         Column(
             modifier = Modifier.padding(16.dp),
@@ -564,13 +561,14 @@ private fun QuickActionButton(
             Icon(
                 icon,
                 contentDescription = label,
-                tint = color,
-                modifier = Modifier.size(24.dp)
+                tint = DarkOnBackground,
+                modifier = Modifier.size(22.dp)
             )
             Text(
                 label,
-                style = MaterialTheme.typography.labelMedium,
-                color = color,
+                style = MaterialTheme.typography.labelSmall,
+                color = DarkOnSurfaceVariant,
+                letterSpacing = 1.sp,
                 fontWeight = FontWeight.SemiBold
             )
         }
@@ -595,18 +593,20 @@ private fun SectionHeader(
             icon,
             contentDescription = null,
             tint = iconColor,
-            modifier = Modifier.size(20.dp)
+            modifier = Modifier.size(18.dp)
         )
         Column {
             Text(
                 title,
-                style = MaterialTheme.typography.titleMedium,
-                fontWeight = FontWeight.SemiBold
+                style = MaterialTheme.typography.titleSmall,
+                fontWeight = FontWeight.Bold,
+                letterSpacing = 2.sp,
+                color = DarkOnBackground
             )
             Text(
                 subtitle,
                 style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant
+                color = DarkOnSurfaceVariant
             )
         }
     }
@@ -627,24 +627,22 @@ private fun WeakCharactersRow(
         items(characters) { char ->
             Surface(
                 modifier = Modifier
-                    .size(56.dp)
+                    .size(52.dp)
                     .clickable {
                         haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove)
                         onCharacterClick(char)
                     },
-                shape = RoundedCornerShape(16.dp),
-                color = MorseRed.copy(alpha = 0.1f),
-                border = androidx.compose.foundation.BorderStroke(
-                    1.dp,
-                    MorseRed.copy(alpha = 0.3f)
-                )
+                shape = RoundedCornerShape(0.dp),
+                color = Color.Transparent,
+                border = androidx.compose.foundation.BorderStroke(1.dp, NothingRed.copy(alpha = 0.5f))
             ) {
                 Box(contentAlignment = Alignment.Center) {
                     Text(
                         char,
                         style = MaterialTheme.typography.titleLarge,
                         fontWeight = FontWeight.Bold,
-                        color = MorseRed
+                        color = NothingRed,
+                        fontFamily = FontFamily.Monospace
                     )
                 }
             }
@@ -653,20 +651,21 @@ private fun WeakCharactersRow(
         item {
             Surface(
                 modifier = Modifier
-                    .size(56.dp)
+                    .size(52.dp)
                     .clickable {
                         haptic.performHapticFeedback(HapticFeedbackType.LongPress)
                         onPracticeAll()
                     },
-                shape = RoundedCornerShape(16.dp),
-                color = MaterialTheme.colorScheme.surfaceVariant
+                shape = RoundedCornerShape(0.dp),
+                color = Color.Transparent,
+                border = androidx.compose.foundation.BorderStroke(1.dp, DarkOutline)
             ) {
                 Box(contentAlignment = Alignment.Center) {
                     Icon(
                         Icons.Filled.ArrowForward,
                         contentDescription = "Practice all",
-                        tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                        modifier = Modifier.size(20.dp)
+                        tint = DarkOnSurfaceVariant,
+                        modifier = Modifier.size(18.dp)
                     )
                 }
             }
@@ -686,8 +685,9 @@ private fun TodayChallengeCard(onClick: () -> Unit) {
                 haptic.performHapticFeedback(HapticFeedbackType.LongPress)
                 onClick()
             },
-        shape = RoundedCornerShape(20.dp),
-        color = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f)
+        shape = RoundedCornerShape(0.dp),
+        color = Color.Transparent,
+        border = androidx.compose.foundation.BorderStroke(1.dp, DarkOutline)
     ) {
         Row(
             modifier = Modifier.padding(20.dp),
@@ -696,42 +696,45 @@ private fun TodayChallengeCard(onClick: () -> Unit) {
         ) {
             Box(
                 modifier = Modifier
-                    .size(52.dp)
-                    .clip(RoundedCornerShape(16.dp))
-                    .background(MorseAmber.copy(alpha = 0.15f)),
+                    .size(48.dp)
+                    .border(1.dp, NothingRed, RoundedCornerShape(0.dp)),
                 contentAlignment = Alignment.Center
             ) {
                 Icon(
                     Icons.Filled.EmojiEvents,
                     contentDescription = null,
-                    tint = MorseAmber,
-                    modifier = Modifier.size(28.dp)
+                    tint = NothingRed,
+                    modifier = Modifier.size(24.dp)
                 )
             }
 
             Column(modifier = Modifier.weight(1f)) {
                 Text(
-                    "Today's Challenge",
+                    "TODAY'S CHALLENGE",
                     style = MaterialTheme.typography.titleMedium,
-                    fontWeight = FontWeight.SemiBold
+                    fontWeight = FontWeight.Bold,
+                    letterSpacing = 1.sp,
+                    color = DarkOnBackground
                 )
                 Text(
                     "Decode 10 words at 25 WPM",
                     style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                    color = DarkOnSurfaceVariant
                 )
             }
 
             Surface(
-                shape = RoundedCornerShape(12.dp),
-                color = MorseAmber.copy(alpha = 0.15f)
+                shape = RoundedCornerShape(0.dp),
+                color = Color.Transparent,
+                border = androidx.compose.foundation.BorderStroke(1.dp, NothingRed)
             ) {
                 Text(
                     "+50 XP",
                     modifier = Modifier.padding(horizontal = 12.dp, vertical = 6.dp),
                     style = MaterialTheme.typography.labelLarge,
-                    color = MorseAmber,
-                    fontWeight = FontWeight.Bold
+                    color = NothingRed,
+                    fontWeight = FontWeight.Bold,
+                    letterSpacing = 1.sp
                 )
             }
         }
@@ -758,9 +761,9 @@ private fun FeatureCardsGrid(
             FeatureCard(
                 modifier = Modifier.weight(1f),
                 icon = Icons.Filled.School,
-                title = "Learning",
+                title = "LEARNING",
                 subtitle = "Koch, Farnsworth, Traditional",
-                gradientColors = GradientCyanToViolet,
+                accentColor = DarkOnBackground,
                 onClick = {
                     haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove)
                     onLearn()
@@ -769,9 +772,9 @@ private fun FeatureCardsGrid(
             FeatureCard(
                 modifier = Modifier.weight(1f),
                 icon = Icons.Filled.BarChart,
-                title = "Statistics",
+                title = "STATISTICS",
                 subtitle = "Track your progress",
-                gradientColors = GradientGreenToCyan,
+                accentColor = NothingRed,
                 onClick = {
                     haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove)
                     onStatistics()
@@ -785,9 +788,9 @@ private fun FeatureCardsGrid(
             FeatureCard(
                 modifier = Modifier.weight(1f),
                 icon = Icons.Filled.CellTower,
-                title = "Ham Radio",
+                title = "HAM RADIO",
                 subtitle = "Q Codes, Phonetic, more",
-                gradientColors = GradientAmberToRed,
+                accentColor = DarkOnBackground,
                 onClick = {
                     haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove)
                     onHam()
@@ -796,9 +799,9 @@ private fun FeatureCardsGrid(
             FeatureCard(
                 modifier = Modifier.weight(1f),
                 icon = Icons.Filled.EmojiEvents,
-                title = "Achievements",
+                title = "ACHIEVEMENTS",
                 subtitle = "Unlock rewards",
-                gradientColors = GradientVioletToPink,
+                accentColor = NothingRed,
                 onClick = {
                     haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove)
                     onAchievements()
@@ -814,23 +817,24 @@ private fun FeatureCard(
     icon: ImageVector,
     title: String,
     subtitle: String,
-    gradientColors: List<Color>,
+    accentColor: Color,
     onClick: () -> Unit
 ) {
     Surface(
         modifier = modifier
-            .height(120.dp)
+            .height(110.dp)
             .clickable(onClick = onClick),
-        shape = RoundedCornerShape(20.dp),
-        color = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.4f)
+        shape = RoundedCornerShape(0.dp),
+        color = Color.Transparent,
+        border = androidx.compose.foundation.BorderStroke(1.dp, DarkOutline)
     ) {
         Box {
-            // Gradient accent
+            // Top accent line
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(4.dp)
-                    .background(Brush.horizontalGradient(gradientColors))
+                    .height(2.dp)
+                    .background(accentColor)
             )
 
             Column(
@@ -843,19 +847,21 @@ private fun FeatureCard(
                 Icon(
                     icon,
                     contentDescription = null,
-                    tint = gradientColors.first(),
-                    modifier = Modifier.size(28.dp)
+                    tint = accentColor,
+                    modifier = Modifier.size(24.dp)
                 )
                 Spacer(Modifier.height(8.dp))
                 Text(
                     title,
-                    style = MaterialTheme.typography.titleSmall,
-                    fontWeight = FontWeight.SemiBold
+                    style = MaterialTheme.typography.labelLarge,
+                    fontWeight = FontWeight.Bold,
+                    letterSpacing = 1.sp,
+                    color = DarkOnBackground
                 )
                 Text(
                     subtitle,
                     style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                    color = DarkOnSurfaceVariant
                 )
             }
         }
@@ -874,8 +880,9 @@ private fun RecentSessionCard(
         modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = 16.dp, vertical = 4.dp),
-        shape = RoundedCornerShape(16.dp),
-        color = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.3f)
+        shape = RoundedCornerShape(0.dp),
+        color = Color.Transparent,
+        border = androidx.compose.foundation.BorderStroke(1.dp, DarkOutline.copy(alpha = 0.5f))
     ) {
         Row(
             modifier = Modifier.padding(16.dp),
@@ -884,37 +891,39 @@ private fun RecentSessionCard(
         ) {
             Box(
                 modifier = Modifier
-                    .size(40.dp)
-                    .clip(CircleShape)
-                    .background(MorseViolet.copy(alpha = 0.15f)),
+                    .size(36.dp)
+                    .border(1.dp, DarkOutline, RoundedCornerShape(0.dp)),
                 contentAlignment = Alignment.Center
             ) {
                 Icon(
                     Icons.Filled.FitnessCenter,
                     contentDescription = null,
-                    tint = MorseViolet,
-                    modifier = Modifier.size(18.dp)
+                    tint = DarkOnSurfaceVariant,
+                    modifier = Modifier.size(16.dp)
                 )
             }
 
             Column(modifier = Modifier.weight(1f)) {
                 Text(
-                    mode,
-                    style = MaterialTheme.typography.titleSmall,
-                    fontWeight = FontWeight.SemiBold
+                    mode.uppercase(),
+                    style = MaterialTheme.typography.labelLarge,
+                    fontWeight = FontWeight.Bold,
+                    letterSpacing = 1.sp,
+                    color = DarkOnBackground
                 )
                 Text(
                     "${(accuracy * 100).toInt()}% accuracy • ${wpm.toInt()} WPM",
                     style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                    color = DarkOnSurfaceVariant
                 )
             }
 
             Text(
                 "+$xpEarned XP",
                 style = MaterialTheme.typography.labelLarge,
-                color = MorseAmber,
-                fontWeight = FontWeight.Bold
+                color = NothingRed,
+                fontWeight = FontWeight.Bold,
+                fontFamily = FontFamily.Monospace
             )
         }
     }
