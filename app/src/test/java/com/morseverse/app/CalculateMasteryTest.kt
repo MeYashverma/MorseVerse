@@ -56,7 +56,7 @@ class CalculateMasteryTest {
         )
 
         testCases.forEach { (attempts, correct, reactionTime) ->
-            val (mastery, _) = calculateMastery(attempts, correct, reactionTime)
+            val (mastery, _) = calculateMastery(attempts, correct, reactionTime.toLong())
             assertTrue(
                 "Mastery for ($attempts, $correct, $reactionTime) should be >= 0",
                 mastery >= 0f
